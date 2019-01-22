@@ -93,7 +93,6 @@ public class ControlFsm : MonoBehaviour {
         this.transform.rotation = q;
 
         this.transform.position += animMove;
-
         animMove = Vector3.zero;
     }
 
