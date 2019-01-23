@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageData  {
-
-    public int damage;
-    public GameObject sender;
+public enum HurtType
+{
+    Damage
 }

@@ -29,7 +29,6 @@ public class MonsterSearch : MonoBehaviour {
     {
         if(other.gameObject.layer==9&&other.tag=="Player"&&other.name== "character")
         {
-            Debug.Log("ing");
             ani.SetBool("Move", true);
             isSearch = true;
         }
@@ -38,7 +37,6 @@ public class MonsterSearch : MonoBehaviour {
     {
         if (other.gameObject.layer == 9 && other.gameObject.tag == "Player")
         {
-            Debug.Log("out");
             isSearch = false;
             ani.SetBool("Move", false);
             ani.SetBool("Attack 01", false);

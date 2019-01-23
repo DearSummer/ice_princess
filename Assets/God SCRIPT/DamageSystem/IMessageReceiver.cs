@@ -1,7 +1,4 @@
-﻿
-
-
-/// <summary>
+﻿/// <summary>
 /// 消息接受者
 /// </summary>
 /// <typeparam name="Type">接受的消息的类型</typeparam>

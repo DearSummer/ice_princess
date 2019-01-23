@@ -41,7 +41,7 @@ public class Damageable : MonoBehaviour {
 
         OnGetHurt.Invoke();
 
-        for(int i =0;i <recceiverList.Count;++i)
+        for (int i = 0; i < recceiverList.Count; ++i)
         {
             recceiverList[i].ReceiverMessage(type, this, data);
         }
