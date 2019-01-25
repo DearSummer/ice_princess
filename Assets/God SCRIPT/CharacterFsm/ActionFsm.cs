@@ -97,7 +97,7 @@ public class ActionFsm :BaseFsm{
     private void WalkOrRun()
     {
         //更具是否是跑的状态，调整到是否为跑，以便于攻击，闪避能快速的进入
-        if (PlayInfo.Instance._actionInfo==PlayInfo.actionInfo.Run)
+        if (PlayInfo.Instance._actionInfo==PlayInfo.actionInfo.Run|| PlayInfo.Instance._actionInfo==PlayInfo.actionInfo.BackRun)
         {
             _double = 2;
         }

@@ -42,8 +42,14 @@ public class HurtAble : MonoBehaviour {
             else
             {
                 ani.SetBool("Die", true);
+                StartCoroutine(Destory());
             }
         }
+    }
+    IEnumerator Destory()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(this.transform.parent.gameObject);
     }
 
 }

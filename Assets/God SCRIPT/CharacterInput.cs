@@ -118,5 +118,20 @@ public class CharacterInput : MonoBehaviour {
             PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
             //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (Time.time - m_timeLost <= 0.2f)
+            {
+                PlayInfo.instance._actionInfo = PlayInfo.actionInfo.BackRun;
+                PlayInfo.instance._isFirstInit = true;
+            }
+            m_timeLost = Time.time;
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.instance._isFirstInit = false;
+            //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
+        }
     }
 }

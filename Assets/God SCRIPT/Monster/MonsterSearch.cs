@@ -44,7 +44,7 @@ public class MonsterSearch : MonoBehaviour {
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 9 && other.gameObject.tag == "Player")
+        if (ani.GetBool("Die")!=true&&other.gameObject.layer == 9 && other.gameObject.tag == "Player")
         {
             nav.SetDestination(searchObj.transform.position);
         }

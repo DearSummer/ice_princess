@@ -11,6 +11,8 @@ public class MouseCamera : MonoBehaviour {
     private GameObject _follow;
 
     private Vector3 _distance;
+
+    private Vector3 offest = Vector3.zero;
 	// Use this for initialization
 	void Start () {
         _follow = GameObject.FindWithTag("Player");
@@ -23,11 +25,13 @@ public class MouseCamera : MonoBehaviour {
 	}
     private void FixedUpdate()
     {
-        this.transform.position += _follow.GetComponent<ControlFsm>().GetDoitMove;
+        offest = _follow.GetComponent<ControlFsm>().GetDoitMove;
+        this.transform.position += new Vector3(offest.x, 0, offest.z);
     }
     private void MyUpdate()
     {
         this.transform.RotateAround(_center.transform.position, _center.transform.up, CharacterInput.Instance.CamerVector.x*10);
-        this.transform.LookAt(LookAt.transform);
+        offest = _center.transform.position - this.transform.position;
+        //this.transform.LookAt(LookAt.transform);
     }
 }
