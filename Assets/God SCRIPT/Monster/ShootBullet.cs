@@ -12,7 +12,7 @@ public class ShootBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((interval-=(Time.deltaTime*3))<0)
+		if((interval-=(Time.deltaTime*2f))<0)
         {
             interval =0.5f;
             GameObject temp = BulletPool.Instance.GetBullet();
