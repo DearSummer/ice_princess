@@ -110,12 +110,14 @@ public class CharacterInput : MonoBehaviour {
             if (Time.time - m_timeLost <= 0.2f)
             {
                 PlayInfo.instance._actionInfo = PlayInfo.actionInfo.Run;
+                PlayInfo.instance._isFirstDoubleRun = true;
             }
             m_timeLost = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
             PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.instance._isFirstDoubleRun = false;
             //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
         }
         if (Input.GetKeyDown(KeyCode.S))

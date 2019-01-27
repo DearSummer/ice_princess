@@ -71,6 +71,7 @@ public class ControlFsm : MonoBehaviour {
             Translate(_actionFsm);
             this.GetComponentInChildren<AnimEvent>().SwordIdle();
             _ani.SetTrigger("IsExitNow");
+            _ani.SetTrigger("Run");
         }
     }
 
@@ -91,6 +92,7 @@ public class ControlFsm : MonoBehaviour {
         //this.transform.RotateAround(this.transform.position, this.transform.up, CharacterInput.Instance.CamerVector.x * 10);
         if (_transY == true|| PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.BackRun)
         {
+            
             Quaternion c = _followCamera.transform.rotation;
             c.Set(this.transform.rotation.x, c.y, this.transform.rotation.z, c.w);
             Quaternion q = Quaternion.Slerp(this.transform.rotation, c, 0.1f);
@@ -103,7 +105,7 @@ public class ControlFsm : MonoBehaviour {
             this.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
             StartCoroutine(WaitToEnableTransY());
         }
-        this.transform.position += animMove;
+        this.transform.position += (animMove);
         deltMove = this.transform.position - lastPosition;
         lastPosition = this.transform.position;
         animMove = Vector3.zero;

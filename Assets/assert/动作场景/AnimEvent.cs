@@ -8,11 +8,34 @@ public class AnimEvent:MonoBehaviour{
     [SerializeField]
     private Animator _ani;
 
+    [SerializeField]
+    private ImageEffect_RadialBlur postProcess;
+    [SerializeField]
+    private Camera cam;
+
+    private bool Open = false;
+
+    [SerializeField]
+    private GameObject preEffect;
     private AudioSource audio;
     public void Start()
     {
         audio = GetComponent<AudioSource>();
         SwordFsm = GetComponentInParent<SwordControl>();
+    }
+    private void Update()
+    {
+        if(Open == true)
+        {
+            float t = 1f / Time.fixedDeltaTime;
+            this.transform.parent.transform.position += this.transform.parent.transform.forward * Time.deltaTime*5;
+            cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, 80f, (t / 10) * Time.deltaTime);
+        }
+        else
+        {
+            float t = 1f / Time.fixedDeltaTime;
+            cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, 60f, (t / 10) * Time.deltaTime);
+        }
     }
     public void SwordIdle()
     {
@@ -43,5 +66,17 @@ public class AnimEvent:MonoBehaviour{
     private void SwordThrowStop()
     {
         ((SwordThrow)SwordFsm.GetState(3))._isStop = true;
+    }
+    private void EnablePost()
+    {
+        postProcess.enabled = true;
+        preEffect.SetActive(true);
+        Open = true;
+    }
+    private void DisablePost()
+    {
+        postProcess.enabled = false;
+        preEffect.SetActive(false);
+        Open = false;
     }
 }

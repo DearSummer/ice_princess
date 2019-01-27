@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.ImagyVFX.Scripts.EffectsSequence;
-public class HurtAble : MonoBehaviour {
+public class HurtAble : MonoBehaviour
+{
     private List<IMsgReceiver<HurtType, HurtData>> receiverList = new List<IMsgReceiver<HurtType, HurtData>>();
     public int maxHp;
     [SerializeField]
