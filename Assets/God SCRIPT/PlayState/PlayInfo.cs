@@ -15,7 +15,7 @@ public class PlayInfo
         }
         set { }
     }
-    public enum actionInfo { walk = 0, Run = 1,BackRun =2 };
+    public enum actionInfo { walk = 0, Run = 1,BackRun =2,RunForwardExit =3 };
     public actionInfo _actionInfo = actionInfo.walk;
     public bool _isFirstInit = false;
     public bool _isFirstDoubleRun = false;

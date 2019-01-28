@@ -13,4 +13,13 @@ public class Weapon : MonoBehaviour {
             other.GetComponent<HurtAble>().GetHurt(HurtType.Damage,d);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            HurtData d = new HurtData(damage, this.gameObject);
+
+            collision.gameObject.GetComponentInChildren<HurtAble>().GetHurt(HurtType.Damage, d);
+        }
+    }
 }

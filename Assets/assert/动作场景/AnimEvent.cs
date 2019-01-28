@@ -36,7 +36,13 @@ public class AnimEvent:MonoBehaviour{
             float t = 1f / Time.fixedDeltaTime;
             cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, 60f, (t / 10) * Time.deltaTime);
         }
+        //这部分从冲刺中退出来，完全可以放在2个脚本中，我这写完全是堆积的，随意很杂乱无章，需要重构一波
+        if(FirstIn == true&&PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.walk)
+        {
+            DisablePost();
+        }
     }
+    private bool FirstIn = false;
     public void SwordIdle()
     {
         SwordFsm.TranslateToState(SwordFsm.GetState(0));
@@ -69,14 +75,19 @@ public class AnimEvent:MonoBehaviour{
     }
     private void EnablePost()
     {
+        FirstIn = true;
         postProcess.enabled = true;
         preEffect.SetActive(true);
         Open = true;
     }
     private void DisablePost()
     {
+        FirstIn = false;
         postProcess.enabled = false;
         preEffect.SetActive(false);
         Open = false;
+        //关闭跑步
+        _ani.SetTrigger("RunExit");
+        PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
     }
 }

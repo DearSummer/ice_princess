@@ -73,6 +73,8 @@ public class ControlFsm : MonoBehaviour {
             _ani.SetTrigger("IsExitNow");
             _ani.SetTrigger("Run");
         }
+
+
     }
 
 

@@ -131,9 +131,7 @@ public class CharacterInput : MonoBehaviour {
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
-            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
             PlayInfo.instance._isFirstInit = false;
-            //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
         }
     }
 }
