@@ -12,19 +12,22 @@ public class ShowOrHid : MonoBehaviour {
     {
         if (OpenOrClose == false)
         {
-            target.GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(Init1(target, OpenOrClose));
+            target.GetComponent<MeshRenderer>().enabled = false;
+            //target.GetComponent<Weapon>().enabled = false;
+            
         }
         else if (OpenOrClose == true)
         {
             target.GetComponent<MeshRenderer>().enabled = true;
+            //target.GetComponent<Weapon>().enabled = true;
             target.SetActive(true);
         }
 
     }
     IEnumerator Init1(GameObject target,bool OorC)
     {
-        yield return new WaitForSeconds(50);//
+        yield return new WaitForSeconds(100);//
         target.SetActive(false);
     }
     public void DesObject(GameObject target)
@@ -34,7 +37,7 @@ public class ShowOrHid : MonoBehaviour {
     }
     IEnumerator Init2(GameObject target)
     {
-        yield return new WaitForSeconds(5);//
+        yield return new WaitForSeconds(2);//
         GameObject.Destroy(target);
     }
     // Use this for initialization

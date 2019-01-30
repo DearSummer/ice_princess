@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class HaKoBeattacked : BaseFsm
 {
+    public override void MyFixUpdate(Animator _ani)
+    {
+
+    }
+
     public override void MyUpdate(Animator _ani)
     {
         

@@ -17,7 +17,10 @@ public class BeAttackedFsm : BaseFsm
         else _currentFsm = _dodgeAttackFsm;
         _currentFsm.MyUpdate(_ani);
     }
+    public override void MyFixUpdate(Animator _ani)
+    {
 
+    }
     public override void PrepareEnter(Animator _ani)
     {
         _ani.SetTrigger("beAttacked");
@@ -26,5 +29,6 @@ public class BeAttackedFsm : BaseFsm
     public override void PrepareExit(Animator _ani)
     {
         _currentFsm.PrepareExit(_ani);
+        PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
     }
 }

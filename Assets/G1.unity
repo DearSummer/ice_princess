@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 31204036}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigLArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,7 +1376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113647830}
   - component: {fileID: 113647831}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Magma Demon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 116820767}
   - component: {fileID: 116820769}
   - component: {fileID: 116820768}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Search
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2501,7 +2501,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189774862}
-  m_Layer: 10
+  - component: {fileID: 189774863}
+  m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2525,6 +2526,18 @@ Transform:
   m_Father: {fileID: 910331833}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &189774863
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189774861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.52
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!1 &191584103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2609,7 @@ GameObject:
   - component: {fileID: 200388125}
   - component: {fileID: 200388126}
   - component: {fileID: 200388128}
+  - component: {fileID: 200388127}
   m_Layer: 0
   m_Name: FollowCamera
   m_TagString: FollowCamera
@@ -2689,6 +2703,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 6ebd202fabf9dac46b2e27258a27947f, type: 2}
+--- !u!114 &200388127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 200388121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9613e492ff1c049a114e20e45c19f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ani: {fileID: 1738545166}
+  postProcess: {fileID: 200388128}
+  cam: {fileID: 200388124}
+  preEffect: {fileID: 131444332}
+  player: {fileID: 761680964}
 --- !u!114 &200388128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4159,7 +4189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 319319368}
   - component: {fileID: 319319369}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Shoot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4619,7 +4649,9 @@ GameObject:
   - component: {fileID: 363837204}
   - component: {fileID: 363837203}
   - component: {fileID: 363837202}
-  m_Layer: 10
+  - component: {fileID: 363837205}
+  - component: {fileID: 363837206}
+  m_Layer: 11
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4682,6 +4714,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 270, y: 180, z: 90}
+--- !u!114 &363837205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363837201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0197fc305ed6b0342a91c4feef1ed2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+--- !u!135 &363837206
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 363837201}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: -0.000000029802322, y: 0, z: 0}
 --- !u!1 &364590734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,7 +5829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 441441104}
   - component: {fileID: 441441105}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Shoot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6288,7 +6344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466298636}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigTail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6350,7 +6406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475381111}
   - component: {fileID: 475381112}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Shoot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7416,6 +7472,60 @@ Transform:
   m_Father: {fileID: 2024034950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &586523576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 586523577}
+  - component: {fileID: 586523579}
+  - component: {fileID: 586523578}
+  m_Layer: 11
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &586523577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586523576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.913, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1873941169}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &586523578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586523576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.58, y: 0.28, z: 0.17}
+  m_Center: {x: 0.4, y: 0, z: 0}
+--- !u!114 &586523579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586523576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6618e7b56ce5045488fa28bff270406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &598757133
 GameObject:
   m_ObjectHideFlags: 0
@@ -7443,7 +7553,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 910331833}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &598757135
 MonoBehaviour:
@@ -9034,7 +9144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 726854207}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigRArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9409,8 +9519,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.198929
-  m_Height: 1.609355
+  m_Radius: 0.79
+  m_Height: 1.73
   m_Direction: 1
   m_Center: {x: 0.01105836, y: 0.7876334, z: -0.01630345}
 --- !u!4 &761680968
@@ -9428,6 +9538,7 @@ Transform:
   - {fileID: 261198001}
   - {fileID: 131444333}
   - {fileID: 1058340219}
+  - {fileID: 807048943}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9799,7 +9910,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 804897282}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigTail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9821,6 +9932,62 @@ Transform:
   m_Father: {fileID: 466298636}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &807048942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807048943}
+  - component: {fileID: 807048944}
+  - component: {fileID: 807048945}
+  m_Layer: 12
+  m_Name: CharaGetHurt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &807048943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807048942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.856, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 761680968}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &807048944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807048942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1d4d83cc9561744a881140221ad56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 500
+  currentHp: 0
+  ani: {fileID: 1738545166}
+--- !u!65 &807048945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807048942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31, y: 1.04, z: 0.42}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &807220607
 GameObject:
   m_ObjectHideFlags: 0
@@ -14299,7 +14466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821232696}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14756,7 +14923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858658568}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigLArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14954,7 +15121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 869799155}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigTail3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15419,7 +15586,6 @@ Transform:
   - {fileID: 116820767}
   - {fileID: 1108574283}
   - {fileID: 2000392851}
-  - {fileID: 2017778250}
   - {fileID: 598757134}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -16078,7 +16244,7 @@ GameObject:
   - component: {fileID: 970337523}
   - component: {fileID: 970337525}
   - component: {fileID: 970337524}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: handfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26065,7 +26231,6 @@ GameObject:
   - component: {fileID: 1058340223}
   - component: {fileID: 1058340220}
   - component: {fileID: 1058340222}
-  - component: {fileID: 1058340221}
   m_Layer: 11
   m_Name: LevitatedSword
   m_TagString: Untagged
@@ -26123,18 +26288,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1058340221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1058340218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6618e7b56ce5045488fa28bff270406e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!136 &1058340222
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30850,7 +31003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1101432433}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigLArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30913,7 +31066,7 @@ GameObject:
   - component: {fileID: 1108574283}
   - component: {fileID: 1108574285}
   - component: {fileID: 1108574284}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30956,7 +31109,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.34
+  m_Radius: 0.97
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &1113062388
 GameObject:
@@ -31415,7 +31568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1158910304}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32213,7 +32366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247465663}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigRArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44749,7 +44902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1641702227}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigLowerJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44979,7 +45132,7 @@ GameObject:
   - component: {fileID: 1662815363}
   - component: {fileID: 1662815365}
   - component: {fileID: 1662815364}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49890,7 +50043,7 @@ GameObject:
   - component: {fileID: 1718402283}
   - component: {fileID: 1718402284}
   - component: {fileID: 1718402285}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: ShootAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49949,7 +50102,7 @@ GameObject:
   - component: {fileID: 1726796021}
   - component: {fileID: 1726796023}
   - component: {fileID: 1726796022}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54601,10 +54754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab15cc3f81463458e2141d990bc9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ani: {fileID: 1738545166}
-  postProcess: {fileID: 200388128}
-  cam: {fileID: 200388124}
-  preEffect: {fileID: 131444332}
+  camView: {fileID: 200388127}
 --- !u!114 &1738545165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54706,7 +54856,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.97056484
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -54942,7 +55092,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776509729}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RigRArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60155,8 +60305,6 @@ GameObject:
   - component: {fileID: 1873941169}
   - component: {fileID: 1873941172}
   - component: {fileID: 1873941170}
-  - component: {fileID: 1873941171}
-  - component: {fileID: 1873941173}
   m_Layer: 11
   m_Name: HandlerSword
   m_TagString: Untagged
@@ -60175,6 +60323,7 @@ Transform:
   m_LocalScale: {x: 0.80000055, y: 0.80000114, z: 0.80000174}
   m_Children:
   - {fileID: 691601546}
+  - {fileID: 586523577}
   m_Father: {fileID: 1979519714}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 307.681, y: 431.786, z: -258.779}
@@ -60214,19 +60363,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &1873941171
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1873941168}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.10341254
-  m_Height: 1.9021845
-  m_Direction: 1
-  m_Center: {x: -0.009999998, y: 0.20052303, z: 0.029999968}
 --- !u!33 &1873941172
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -60234,18 +60370,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1873941168}
   m_Mesh: {fileID: 4300000, guid: 3900917d219d0ed4babd10aa21e88311, type: 3}
---- !u!114 &1873941173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1873941168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6618e7b56ce5045488fa28bff270406e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!1 &1877813163
 GameObject:
   m_ObjectHideFlags: 0
@@ -65214,7 +65338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958810568}
   - component: {fileID: 1958810569}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Shoot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65899,7 +66023,7 @@ GameObject:
   - component: {fileID: 2000392852}
   - component: {fileID: 2000392853}
   m_Layer: 12
-  m_Name: GetHurt
+  m_Name: MonsterGetHurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65925,10 +66049,10 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2000392850}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.55
+  m_Radius: 0.43
   m_Center: {x: 0, y: 0.26, z: 0}
 --- !u!114 &2000392853
 MonoBehaviour:
@@ -70804,47 +70928,6 @@ Transform:
   m_Father: {fileID: 161975083}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2017778249
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2017778250}
-  - component: {fileID: 2017778251}
-  m_Layer: 10
-  m_Name: ControlCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2017778250
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2017778249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 910331833}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2017778251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2017778249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09ff542729b1e4d478a306edaeeab483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ha: {fileID: 2000392853}
 --- !u!1 &2021047398
 GameObject:
   m_ObjectHideFlags: 0
@@ -76259,7 +76342,7 @@ GameObject:
   - component: {fileID: 2098823416}
   - component: {fileID: 2098823418}
   - component: {fileID: 2098823417}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: handfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

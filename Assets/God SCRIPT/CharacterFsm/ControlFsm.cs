@@ -59,24 +59,23 @@ public class ControlFsm : MonoBehaviour {
         _currentFsm.MyUpdate(_ani);
         if (Input.GetKeyDown(KeyCode.J))
         {
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.injured;
             Translate(_beAttackedFsm);
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.jump;
             Translate(_jumpFsm);
         }
         ///以下为实验阶段，可能架构很烂
-        if (PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.Run && _currentFsm != _actionFsm)
+        if (PlayInfo.Instance._characterInfo == PlayInfo.characterInfo.action && _currentFsm != _actionFsm)
         {
             Translate(_actionFsm);
             this.GetComponentInChildren<AnimEvent>().SwordIdle();
             _ani.SetTrigger("IsExitNow");
             _ani.SetTrigger("Run");
         }
-
-
     }
-
 
     public void Translate(BaseFsm nextFsm)
     {
@@ -91,6 +90,7 @@ public class ControlFsm : MonoBehaviour {
     private GameObject _followCamera;
     private void FixedUpdate()
     {
+        _currentFsm.MyFixUpdate(_ani);
         //this.transform.RotateAround(this.transform.position, this.transform.up, CharacterInput.Instance.CamerVector.x * 10);
         if (_transY == true|| PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.BackRun)
         {

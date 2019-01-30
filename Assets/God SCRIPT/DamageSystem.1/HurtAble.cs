@@ -43,7 +43,6 @@ public class HurtAble : MonoBehaviour
         if(ht == HurtType.Damage)
         {
             currentHp = (currentHp - hd.damageFigure) > 0 ? currentHp - hd.damageFigure : 0;
-
             //根据伤害，来指定做一系列反应
             if(currentHp>0)
             {

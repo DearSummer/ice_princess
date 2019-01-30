@@ -16,11 +16,11 @@ public class SwordInHand : SwordState
         if (_operated == null) _operated = GameObject.Find("ShowOrHid").GetComponent<ShowOrHid>().HandlerSword;
         _operated.SetActive(true);
         _operated.GetComponent<MeshRenderer>().enabled = true;
-        //_operated.GetComponentInChildren<CapsuleCollider>().enabled = true;
+        _operated.GetComponentInChildren<BoxCollider>().enabled = true;
     }
     public override void PrepareExit()
     {
         GameObject.Find("ShowOrHid").GetComponent<ShowOrHid>().DisPlay(_operated, false);
-        //_operated.GetComponentInChildren<CapsuleCollider>().enabled = false;
+        _operated.GetComponentInChildren<BoxCollider>().enabled = false;
     }
 }

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HaKoIdle : BaseFsm
 {
+    public override void MyFixUpdate(Animator _ani)
+    {
+
+    }
 
     public override void MyUpdate(Animator _ani)
     {

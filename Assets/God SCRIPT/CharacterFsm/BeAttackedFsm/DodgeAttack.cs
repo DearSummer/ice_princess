@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DodgeAttack : BaseFsm
 {
+
+
     public override void MyUpdate(Animator _ani)
     {
         if(Input.GetMouseButtonDown(0))
@@ -12,7 +14,10 @@ public class DodgeAttack : BaseFsm
             _ani.SetBool("IsPress", true);
         }
     }
-
+    public override void MyFixUpdate(Animator _ani)
+    {
+        
+    }
     public override void PrepareEnter(Animator _ani)
     {
         

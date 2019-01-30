@@ -109,15 +109,14 @@ public class CharacterInput : MonoBehaviour {
         {
             if (Time.time - m_timeLost <= 0.2f)
             {
-                PlayInfo.instance._actionInfo = PlayInfo.actionInfo.Run;
-                PlayInfo.instance._isFirstDoubleRun = true;
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
             }
             m_timeLost = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
             PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-            PlayInfo.instance._isFirstDoubleRun = false;
             //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -125,6 +124,7 @@ public class CharacterInput : MonoBehaviour {
             if (Time.time - m_timeLost <= 0.2f)
             {
                 PlayInfo.instance._actionInfo = PlayInfo.actionInfo.BackRun;
+                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
                 PlayInfo.instance._isFirstInit = true;
             }
             m_timeLost = Time.time;

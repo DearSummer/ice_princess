@@ -39,7 +39,7 @@ public class SwordRotate : SwordState
         _temp.SetActive(true);
         _temp.GetComponent<MeshRenderer>().enabled = true;
 
-        _temp.GetComponentInChildren<CapsuleCollider>().enabled = true;
+        _temp.GetComponentInChildren<BoxCollider>().enabled = true;
         _temp.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         _temp.transform.position = _handler.transform.position;
         _temp.transform.SetParent(null);

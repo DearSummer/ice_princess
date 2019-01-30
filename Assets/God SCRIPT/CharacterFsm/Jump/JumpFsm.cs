@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class JumpFsm : BaseFsm
 {
+    public override void MyFixUpdate(Animator _ani)
+    {
+
+    }
+
     public override void MyUpdate(Animator _ani)
     {
-        
+
     }
 
     public override void PrepareEnter(Animator _ani)
     {
-        CharacterInput.Instance.InputEnable = false;
         _ani.SetTrigger("Jump");
+        _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.up * 2000);
+        _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.forward * 2000);
+
     }
 
     public override void PrepareExit(Animator _ani)
     {
-        CharacterInput.Instance.InputEnable = true;
+        PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
     }
 }

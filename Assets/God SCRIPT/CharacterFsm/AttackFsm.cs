@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackFsm:BaseFsm  {
+    public override void MyFixUpdate(Animator _ani)
+    {
+        
+    }
 
     public override void MyUpdate(Animator _ani)
     {
@@ -33,6 +37,5 @@ public class AttackFsm:BaseFsm  {
         _ani.SetBool("IsRunAttack", false);
         _ani.ResetTrigger("RightButtonDown");
         _ani.ResetTrigger("LeftButtonDown");
-        _ani.ResetTrigger("IsExitNow");
     }
 }
