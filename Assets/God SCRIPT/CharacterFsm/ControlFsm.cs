@@ -12,6 +12,7 @@ public class ControlFsm : MonoBehaviour {
     private BaseFsm _jumpFsm = new JumpFsm();
     private BaseFsm _currentFsm;
 
+    private CharacterInput _input;
 
     private Vector3 animMove = Vector3.zero;
     public Vector3 GetDoitMove
@@ -40,7 +41,7 @@ public class ControlFsm : MonoBehaviour {
                 return null;
         }
     }
-    public BaseFsm GetFsm
+    private BaseFsm GetFsm
     {
         get { return _currentFsm; }
     }
@@ -52,6 +53,8 @@ public class ControlFsm : MonoBehaviour {
         _followCamera = GameObject.FindWithTag("FollowCamera");
 
         lastPosition = this.transform.position;
+
+        _input = this.GetComponent<CharacterInput>();
     }
 	
 	// Update is called once per frame
@@ -61,11 +64,6 @@ public class ControlFsm : MonoBehaviour {
         {
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.injured;
             Translate(_beAttackedFsm);
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.jump;
-            Translate(_jumpFsm);
         }
         ///以下为实验阶段，可能架构很烂
         if (PlayInfo.Instance._characterInfo == PlayInfo.characterInfo.action && _currentFsm != _actionFsm)
@@ -91,22 +89,7 @@ public class ControlFsm : MonoBehaviour {
     private void FixedUpdate()
     {
         _currentFsm.MyFixUpdate(_ani);
-        //this.transform.RotateAround(this.transform.position, this.transform.up, CharacterInput.Instance.CamerVector.x * 10);
-        if (_transY == true|| PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.BackRun)
-        {
-            
-            Quaternion c = _followCamera.transform.rotation;
-            c.Set(this.transform.rotation.x, c.y, this.transform.rotation.z, c.w);
-            Quaternion q = Quaternion.Slerp(this.transform.rotation, c, 0.1f);
-            this.transform.rotation = q;
-        }
-        if (PlayInfo.Instance._isFirstInit ==true)
-        {
-            PlayInfo.Instance._isFirstInit = false;
-            _transY = false;
-            this.transform.Rotate(new Vector3(0, 180, 0), Space.Self);
-            StartCoroutine(WaitToEnableTransY());
-        }
+        FollowWithCamera();
         this.transform.position += (animMove);
         deltMove = this.transform.position - lastPosition;
         lastPosition = this.transform.position;
@@ -118,10 +101,25 @@ public class ControlFsm : MonoBehaviour {
     {
         animMove += vec;
     }
-    private bool _transY = true;
-    IEnumerator WaitToEnableTransY()
+
+    private void FollowWithCamera()
     {
-        yield return new WaitForSeconds(5);
-        _transY = true;
+        if(_input.m_MovementForward!=0||_input.m_MovementRight!=0)
+        {
+            int dirX = _input.m_MovementForward > 0 ? 0 : -1;
+            int dirY = _input.m_MovementRight > 0 ? 1 : -1;
+            Vector3 todir = Vector3.zero;
+            if(_input.m_MovementForward!=0)
+            {
+                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y+180*dirX, this.transform.rotation.z);
+            }
+            else
+            {
+                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y, this.transform.rotation.z);
+            }
+            Quaternion todirQuateranion = Quaternion.Euler(todir);
+            Quaternion c = Quaternion.Slerp(this.transform.rotation, todirQuateranion, 0.1f);
+            this.transform.rotation = c;
+        }
     }
 }

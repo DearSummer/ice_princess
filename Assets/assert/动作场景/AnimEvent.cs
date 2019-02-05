@@ -10,25 +10,6 @@ public class AnimEvent:MonoBehaviour{
     {
         SwordFsm = GetComponentInParent<SwordControl>();
     }
-    //private void Update()
-    //{
-    //    if (Open == true)
-    //    {
-    //        float t = 1f / Time.fixedDeltaTime;
-    //        this.transform.parent.transform.position += this.transform.parent.transform.forward * Time.deltaTime * 5;
-    //        cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, 80f, (t / 10) * Time.deltaTime);
-    //    }
-    //    else if (Open == false || PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.RunJump)
-    //    {
-    //        float t = 1f / Time.fixedDeltaTime;
-    //        cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, 60f, (t / 10) * Time.deltaTime);
-    //    }
-    //    //这部分从冲刺中退出来，完全可以放在2个脚本中，我这写完全是堆积的，随意很杂乱无章，需要重构一波
-    //    if (FirstIn == true && PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.walk)
-    //    {
-    //        DisablePost();
-    //    }
-    //}
     private bool FirstIn = false;
     //这里都是命令，其实都可以用命令封装起来
     public void SwordIdle()
@@ -68,5 +49,14 @@ public class AnimEvent:MonoBehaviour{
     private void DisablePost()
     {
         camView.DisablePost();
+    }
+    private void UpAttack()
+    {
+        this.transform.parent.gameObject.GetComponent<Rigidbody>().AddForce(this.transform.parent.transform.up * 2000);
+    }
+    private void ForWardSpecialAttack()
+    {
+        camView.ForWardSpecialAttack();
+        camView.CameraShake();
     }
 }

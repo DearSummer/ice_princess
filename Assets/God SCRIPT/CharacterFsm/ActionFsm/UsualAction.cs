@@ -6,8 +6,11 @@ namespace ActionSpace
 {
     public class UsualAction : BaseFsm
     {
-        private int _double = 1;//控制是否跑动
-        private float _temp = 1;//用来作为跑动lerp的插值
+        private int _doubleX = 1;//控制是否跑动
+        private float _tempX = 1;//用来作为跑动lerp的插值
+        private int _doubleY = 1;
+        private float _tempY = 1;
+
         private Animator _ani;//人物控制器
 
         private GameObject player = null;
@@ -23,6 +26,13 @@ namespace ActionSpace
                 {
                     _ani.SetBool("IsRunAttack", true);
                 }
+                fsm.Translate(fsm.GetFsmAssemble(1));
+                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
+            }
+            else if(Input.GetKeyDown(KeyCode.C))
+            {
+                _ani.SetBool("IsRunAttack", true);
+                ControlFsm fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
                 fsm.Translate(fsm.GetFsmAssemble(1));
                 PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
             }
@@ -45,26 +55,37 @@ namespace ActionSpace
         }
         public override void PrepareExit(Animator _ani)
         {
-            _temp = 1;
-            _double = 1;
+            _tempX = 1;
+            _doubleX = 1;
+            _tempY = 1;
+            _doubleY = 1;
         }
         private void LocalMotion(Animator _ani)//专门用来移动的
         {
-            _temp = Mathf.Lerp(_temp, _double, 0.05f);//计算插值
-            _ani.SetFloat("forward", CharacterInput.Instance.m_MovementForward * _temp);//设置为插值
-            _ani.SetFloat("right", CharacterInput.Instance.m_MovementRight);
+            _tempX = Mathf.Lerp(_tempX, _doubleX, 0.05f);//计算插值
+            _tempY = Mathf.Lerp(_tempY, _doubleY, 0.05f);
+            _ani.SetFloat("forward", CharacterInput.Instance.m_MovementForward * _tempX);//设置为插值
+            _ani.SetFloat("right"  , CharacterInput.Instance.m_MovementRight   * _tempY);
             PlayStepAudio(_ani);//播放是否发出脚步声
         }
         private void WalkOrRun(Animator ani)
         {
             //更具是否是跑的状态，调整到是否为跑，以便于攻击，闪避能快速的进入
-            if (PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.Run || PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.BackRun)
+            if (PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.Run)
             {
-                _double = 2;
+                _doubleX = 2;
             }
             else
             {
-                _double = 1;
+                _doubleX = 1;
+            }
+            if(PlayInfo.Instance._adjustVector.y==90|| PlayInfo.Instance._adjustVector.y==-90)
+            {
+                _doubleY = 2;
+            }
+            else
+            {
+                _doubleY = 1;
             }
         }
 

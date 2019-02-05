@@ -22,6 +22,8 @@ namespace CamerScript
 
         [SerializeField]
         private GameObject player;
+
+        private float ViewPoint = 60f;
         // Use this for initialization
         void Start()
         {
@@ -38,12 +40,12 @@ namespace CamerScript
             if (Open == true)
             {
                 float t = 1f / Time.fixedDeltaTime;
-                this.GetComponent<Camera>().fieldOfView = Mathf.Lerp(this.GetComponent<Camera>().fieldOfView, 90f, (t / 10) * Time.deltaTime);
+                this.GetComponent<Camera>().fieldOfView = Mathf.Lerp(this.GetComponent<Camera>().fieldOfView, ViewPoint, (t / 10) * Time.deltaTime);
             }
             else if (Open == false || PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.RunJump)
             {
                 float t = 1f / Time.fixedDeltaTime;
-                this.GetComponent<Camera>().fieldOfView = Mathf.Lerp(this.GetComponent<Camera>().fieldOfView, 60f, (t / 10) * Time.deltaTime);
+                this.GetComponent<Camera>().fieldOfView = Mathf.Lerp(this.GetComponent<Camera>().fieldOfView, ViewPoint, (t / 10) * Time.deltaTime);
             }
             if (FirstIn == true && PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.walk)
             {
@@ -55,11 +57,13 @@ namespace CamerScript
             FirstIn = true;
             postProcess.enabled = true;
             preEffect.SetActive(true);
+            ViewPoint = 90f;
             //PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
             Open = true;
         }
         public void DisablePost()
         {
+            ViewPoint = 60f;
             FirstIn = false;
             postProcess.enabled = false;
             preEffect.SetActive(false);
@@ -68,6 +72,24 @@ namespace CamerScript
             PlayInfo.Instance._actionInfo= PlayInfo.actionInfo.Run;
             _ani.ResetTrigger("RunExit");
             _ani.SetTrigger("RunExit");
+        }
+        public void ForWardSpecialAttack()
+        {
+            ViewPoint = 90f;
+            preEffect.SetActive(true);
+            _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.forward * 2000);
+            _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.up * 1500);
+            StartCoroutine(BackToNormal());
+        }
+        IEnumerator BackToNormal()
+        {
+            yield return new WaitForSeconds(1);
+            preEffect.SetActive(false);
+            ViewPoint = 60f;
+        }
+        public void CameraShake()
+        {
+            this.GetComponent<CameraShakeEffect>().enabled = true;
         }
     }
 }

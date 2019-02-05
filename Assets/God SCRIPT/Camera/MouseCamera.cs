@@ -26,6 +26,10 @@ namespace CamerScript
         // Update is called once per frame
         void Update()
         {
+            
+        }
+        private void LateUpdate()
+        {
             MyUpdate();
         }
         private void FixedUpdate()
@@ -35,7 +39,7 @@ namespace CamerScript
         }
         private void MyUpdate()
         {
-            this.transform.RotateAround(_center.transform.position, _center.transform.up, CharacterInput.Instance.CamerVector.x * 10);
+            this.transform.RotateAround(_center.transform.position, _center.transform.up, CharacterInput.Instance.CamerVector.x * 5);
             offest = _center.transform.position - this.transform.position;
             //this.transform.LookAt(LookAt.transform);
         }

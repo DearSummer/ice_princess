@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -110,28 +110,70 @@ public class CharacterInput : MonoBehaviour {
             if (Time.time - m_timeLost <= 0.2f)
             {
                 PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+                PlayInfo.Instance._adjustVector = new Vector3(0, 360, 0);
             }
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
             m_timeLost = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
             PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-            //GameObject.Find("FootstepAudio").GetComponent<AudioSource>().Stop();
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (Time.time - m_timeLost <= 0.2f)
             {
-                PlayInfo.instance._actionInfo = PlayInfo.actionInfo.BackRun;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
                 PlayInfo.instance._isFirstInit = true;
+                PlayInfo.Instance._adjustVector = new Vector3(0,180,0);
             }
             m_timeLost = Time.time;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
             PlayInfo.instance._isFirstInit = false;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (Time.time - m_timeLost <= 0.2f)
+            {
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.instance._isFirstInit = true;
+                PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
+            }
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+            m_timeLost = Time.time;
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.instance._isFirstInit = false;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (Time.time - m_timeLost <= 0.2f)
+            {
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.instance._isFirstInit = true;
+                PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
+            }
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+            m_timeLost = Time.time;
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.instance._isFirstInit = false;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
         }
     }
 }
