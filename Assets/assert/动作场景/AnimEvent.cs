@@ -57,6 +57,6 @@ public class AnimEvent:MonoBehaviour{
     private void ForWardSpecialAttack()
     {
         camView.ForWardSpecialAttack();
-        camView.CameraShake();
+        //camView.CameraShake();
     }
 }

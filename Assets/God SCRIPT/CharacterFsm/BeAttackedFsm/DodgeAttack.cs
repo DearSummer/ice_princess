@@ -10,7 +10,6 @@ public class DodgeAttack : BaseFsm
     {
         if(Input.GetMouseButtonDown(0))
         {
-            _ani.SetTrigger("atk");
             _ani.SetBool("IsPress", true);
         }
     }

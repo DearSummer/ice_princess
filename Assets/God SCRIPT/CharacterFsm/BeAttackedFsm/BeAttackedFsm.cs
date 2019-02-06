@@ -23,7 +23,7 @@ public class BeAttackedFsm : BaseFsm
     }
     public override void PrepareEnter(Animator _ani)
     {
-        _ani.SetTrigger("beAttacked");
+        _ani.SetTrigger("TakeDamage");
     }
 
     public override void PrepareExit(Animator _ani)
