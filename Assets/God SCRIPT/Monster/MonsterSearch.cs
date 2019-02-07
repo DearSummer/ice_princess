@@ -9,7 +9,6 @@ public class MonsterSearch : MonoBehaviour {
     private GameObject tra;
     private NavMeshAgent nav;
 
-    private bool isSearch = false;
     [SerializeField]
     private GameObject searchObj;
     // Use this for initialization
@@ -30,14 +29,12 @@ public class MonsterSearch : MonoBehaviour {
         if(other.gameObject.layer==9&&other.tag=="Player"&&other.name== "character")
         {
             ani.SetBool("Move", true);
-            isSearch = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == 9 && other.gameObject.tag == "Player")
         {
-            isSearch = false;
             ani.SetBool("Move", false);
             ani.SetBool("Attack 01", false);
         }
@@ -46,7 +43,7 @@ public class MonsterSearch : MonoBehaviour {
     {
         if (ani.GetBool("Die")!=true&&other.gameObject.layer == 9 && other.gameObject.tag == "Player")
         {
-            nav.SetDestination(searchObj.transform.position);
+            //nav.SetDestination(searchObj.transform.position);
         }
     }
 }

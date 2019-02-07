@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/SCHOOL_twilight.unity
+    guid: 4ce3b9b7dbc91c340b6048c2319a0368
   m_configObjects: {}

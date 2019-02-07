@@ -24,7 +24,6 @@ public class ControlFsm : MonoBehaviour {
     }
 
     /////////////
-    private bool CanTranslate = true;
     public BaseFsm GetFsmAssemble(int num)
     {
         switch(num)
@@ -71,7 +70,7 @@ public class ControlFsm : MonoBehaviour {
             Translate(_actionFsm);
             this.GetComponentInChildren<AnimEvent>().SwordIdle();
             _ani.SetTrigger("IsExitNow");
-            _ani.SetTrigger("Run");
+            //_ani.SetTrigger("Run");
         }
     }
 
@@ -107,7 +106,7 @@ public class ControlFsm : MonoBehaviour {
         if(_input.m_MovementForward!=0||_input.m_MovementRight!=0)
         {
             int dirX = _input.m_MovementForward > 0 ? 0 : -1;
-            int dirY = _input.m_MovementRight > 0 ? 1 : -1;
+            //int dirY = _input.m_MovementRight > 0 ? 1 : -1;
             Vector3 todir = Vector3.zero;
             if(_input.m_MovementForward!=0)
             {

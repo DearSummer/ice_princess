@@ -143,8 +143,6 @@ public class CharacterInput : MonoBehaviour {
         {
             if (Time.time - m_timeLost <= 0.2f)
             {
-                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                PlayInfo.instance._isFirstInit = true;
                 PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
             }
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
@@ -161,8 +159,6 @@ public class CharacterInput : MonoBehaviour {
         {
             if (Time.time - m_timeLost <= 0.2f)
             {
-                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                PlayInfo.instance._isFirstInit = true;
                 PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
             }
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;

@@ -7,8 +7,6 @@ public class SwordRotate : SwordState
     private GameObject _temp = null;
     private GameObject _model = null;
 
-    private string _modelName = "HandlerSword";
-
     private GameObject _handler = null;
 
     public bool _IsBack = false;

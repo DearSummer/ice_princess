@@ -7,8 +7,6 @@ public class SwordThrow : SwordState
     private GameObject _temp = null;
     private GameObject _model = null;
 
-    private string _modelName = "HandlerSword";
-
     public bool _isStop = false;
     public override void MyUpdate()
     {

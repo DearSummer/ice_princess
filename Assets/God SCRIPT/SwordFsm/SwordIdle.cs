@@ -6,8 +6,6 @@ public class SwordIdle : SwordState
 {
     private GameObject _operated;
     private GameObject _operatedRight;
-    private GameObject _show;
-    private    string   _name = "LevitatedSword";
     public override void MyUpdate()
     {
         

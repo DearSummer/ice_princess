@@ -5,7 +5,6 @@ using UnityEngine;
 public class SwordInHand : SwordState
 {
     private GameObject _operated ;
-    private string _name = "HandlerSword";
     public override void MyUpdate()
     {
         

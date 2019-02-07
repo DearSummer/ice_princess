@@ -29,13 +29,13 @@ namespace ActionSpace
                 fsm.Translate(fsm.GetFsmAssemble(1));
                 PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
             }
-            else if(Input.GetKeyDown(KeyCode.C))
-            {
-                _ani.SetBool("IsRunAttack", true);
-                ControlFsm fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
-                fsm.Translate(fsm.GetFsmAssemble(1));
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
-            }
+            //else if(Input.GetKeyDown(KeyCode.C))
+            //{
+            //    _ani.SetBool("IsRunAttack", true);
+            //    ControlFsm fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
+            //    fsm.Translate(fsm.GetFsmAssemble(1));
+            //    PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
+            //}
             LocalMotion(_ani);
             WalkOrRun(_ani);
 

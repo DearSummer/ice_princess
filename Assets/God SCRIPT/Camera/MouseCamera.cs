@@ -45,7 +45,6 @@ namespace CamerScript
         private void MyUpdate()
         {
             Vector3 dir = (LookAt.transform.position - this.transform.position).normalized;
-            Vector3 redir = new Vector3(dir.x, dir.y, dir.z * distance);
             this.transform.position = LookAt.transform.position - dir * distance;
             //this.transform.LookAt(LookAt.transform.position);
             TransX();
