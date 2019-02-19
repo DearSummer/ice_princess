@@ -21,7 +21,7 @@ public class TempTranslate : StateMachineBehaviour {
     {
         fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
         fsm.Translate(fsm.GetFsmAssemble(0));
-        animator.SetBool("IsPress", false);
+        //animator.SetBool("IsPress", false);
     }
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

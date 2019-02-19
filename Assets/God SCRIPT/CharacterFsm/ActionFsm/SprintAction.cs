@@ -11,7 +11,6 @@ namespace ActionSpace
         public override void MyFixUpdate(Animator _ani)
         {
             player.transform.transform.position += player.transform.transform.forward * Time.deltaTime * 6;
-            _ani.ResetTrigger("Run");
         }
 
         public override void MyUpdate(Animator _ani)
@@ -23,13 +22,11 @@ namespace ActionSpace
         {
             player = GameObject.FindWithTag("Player");
             _ani.ResetTrigger("RunExit");
-            _ani.SetTrigger("Run");
         }
 
         public override void PrepareExit(Animator _ani)
         {
-            _ani.ResetTrigger("Run");
-            
+
         }
     }
 }

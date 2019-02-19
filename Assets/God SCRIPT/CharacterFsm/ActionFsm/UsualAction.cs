@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AnimatorScript;
 namespace ActionSpace
 {
     public class UsualAction : BaseFsm
@@ -22,20 +22,9 @@ namespace ActionSpace
             if (Input.GetMouseButtonDown(0))
             {
                 ControlFsm fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
-                if (_ani.GetFloat("forward") >= 1.5f)
-                {
-                    _ani.SetBool("IsRunAttack", true);
-                }
                 fsm.Translate(fsm.GetFsmAssemble(1));
                 PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
             }
-            //else if(Input.GetKeyDown(KeyCode.C))
-            //{
-            //    _ani.SetBool("IsRunAttack", true);
-            //    ControlFsm fsm = GameObject.FindWithTag("Player").GetComponent<ControlFsm>();
-            //    fsm.Translate(fsm.GetFsmAssemble(1));
-            //    PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.attack;
-            //}
             LocalMotion(_ani);
             WalkOrRun(_ani);
 
@@ -49,12 +38,10 @@ namespace ActionSpace
             }
 
             _audio = _ani.GetComponent<RandomAudioPlayer>();
-
-            //_ani.ResetTrigger("IsExitNow");//所有强制触发的都要重置一遍
-           // _ani.ResetTrigger("RunExit");
         }
         public override void PrepareExit(Animator _ani)
         {
+            TransmitInfo(_ani);
             _tempX = 1;
             _doubleX = 1;
             _tempY = 1;
@@ -117,11 +104,21 @@ namespace ActionSpace
                 }
             }
         }
-
         public override void MyFixUpdate(Animator _ani)
         {
             //要想办法解决，有时候trigger没有被触发
             //_ani.ResetTrigger("RunExit");
+        }
+        private void TransmitInfo(Animator _ani)
+        {
+            if(_ani.GetFloat("forward")>1.5f)
+            {
+                AnimatorInfo.Instance.Run = true;
+            }
+            else
+            {
+                AnimatorInfo.Instance.Run = false;
+            }
         }
     }
 }

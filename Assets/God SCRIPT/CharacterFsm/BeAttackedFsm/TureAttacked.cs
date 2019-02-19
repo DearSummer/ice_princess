@@ -21,6 +21,6 @@ public class TureAttacked : BaseFsm
 
     public override void PrepareExit(Animator _ani)
     {
-        _ani.SetBool("IsTrueAttacked", false);
+
     }
 }

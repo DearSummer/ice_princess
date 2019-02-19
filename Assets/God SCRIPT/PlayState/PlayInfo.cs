@@ -19,7 +19,8 @@ public class PlayInfo
     public characterInfo _characterInfo = characterInfo.action;
     public enum actionInfo { walk = 0, Run = 1, SprintRun = 3, RunJump = 5 };
     public actionInfo _actionInfo = actionInfo.walk;
-
+    public enum sprintInfo { enter = 0,over =2}
+    public sprintInfo _sprintInfo = sprintInfo.over;
     public bool _isFirstInit = false;
     //用来调整专门的奔跑动画
     public Vector3 _adjustVector = Vector3.zero;

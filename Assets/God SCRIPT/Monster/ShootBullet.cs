@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootBullet : MonoBehaviour {
-    public float interval = 0.5f;
+    public float interval = 0.1f;
 	// Use this for initialization
 	void Start ()
     {
@@ -14,7 +14,7 @@ public class ShootBullet : MonoBehaviour {
 	void Update () {
 		if((interval-=(Time.deltaTime*2f))<0)
         {
-            interval =0.5f;
+            interval =0.1f;
             GameObject temp = BulletPool.Instance.GetBullet();
             temp.transform.position = this.transform.position;
             temp.GetComponent<BulletMove>().ResetInfo(this.transform.forward);

@@ -110,6 +110,7 @@ public class CharacterInput : MonoBehaviour {
             if (Time.time - m_timeLost <= 0.2f)
             {
                 PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
                 PlayInfo.Instance._adjustVector = new Vector3(0, 360, 0);
             }
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;

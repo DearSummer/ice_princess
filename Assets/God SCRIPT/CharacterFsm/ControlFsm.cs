@@ -61,16 +61,15 @@ public class ControlFsm : MonoBehaviour {
         _currentFsm.MyUpdate(_ani);
         if (Input.GetKeyDown(KeyCode.J))
         {
-            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.injured;
             Translate(_beAttackedFsm);
         }
-        ///以下为实验阶段，可能架构很烂
-        if (PlayInfo.Instance._characterInfo == PlayInfo.characterInfo.action && _currentFsm != _actionFsm)
+        //仿照anystate进入的
+        if (PlayInfo.Instance._actionInfo == PlayInfo.actionInfo.SprintRun && PlayInfo.Instance._sprintInfo == PlayInfo.sprintInfo.enter)
         {
+            PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.over;
             Translate(_actionFsm);
             this.GetComponentInChildren<AnimEvent>().SwordIdle();
-            _ani.SetTrigger("IsExitNow");
-            //_ani.SetTrigger("Run");
+            _ani.SetTrigger("SprintNow");
         }
     }
 

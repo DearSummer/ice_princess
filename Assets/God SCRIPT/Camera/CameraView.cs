@@ -70,7 +70,6 @@ namespace CamerScript
             Open = false;
             //关闭跑步
             PlayInfo.Instance._actionInfo= PlayInfo.actionInfo.Run;
-            _ani.ResetTrigger("RunExit");
             _ani.SetTrigger("RunExit");
         }
         public void ForWardSpecialAttack()

@@ -7,15 +7,35 @@ public class BeAttackedFsm : BaseFsm
     private BaseFsm _dodgeAttackFsm = new DodgeAttack();
     private BaseFsm _tureAttackedFsm = new TureAttacked();
     private BaseFsm _currentFsm = null;
+
+    private float _time = 0.3f;
     public BeAttackedFsm()
     {
     }
     public override void MyUpdate(Animator _ani)
     {
-        bool flag = _ani.GetBool("IsTrueAttacked");
-        if (flag) _currentFsm = _tureAttackedFsm;
-        else _currentFsm = _dodgeAttackFsm;
-        _currentFsm.MyUpdate(_ani);
+        if(_currentFsm!=null)
+        {
+            _currentFsm.MyUpdate(_ani);
+        }
+        else
+        {
+            if ((_time -= Time.deltaTime) > 0)
+            {
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    _time = -1f;
+                    _ani.SetTrigger("Dodge");
+                    _currentFsm = _dodgeAttackFsm;
+                    _currentFsm.PrepareEnter(_ani);
+                }
+            }
+            else
+            {
+                _currentFsm = _tureAttackedFsm;
+            }
+        }
+        
     }
     public override void MyFixUpdate(Animator _ani)
     {
@@ -23,11 +43,18 @@ public class BeAttackedFsm : BaseFsm
     }
     public override void PrepareEnter(Animator _ani)
     {
+        PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.injured;
         _ani.SetTrigger("TakeDamage");
+        _currentFsm = null;
+        _time = 0.3f;
     }
 
     public override void PrepareExit(Animator _ani)
     {
+        if (_currentFsm == null)
+        {
+            _currentFsm = _tureAttackedFsm;
+        }
         _currentFsm.PrepareExit(_ani);
         PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
     }
