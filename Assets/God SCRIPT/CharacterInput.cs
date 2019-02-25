@@ -151,7 +151,7 @@ public class CharacterInput : MonoBehaviour {
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
-            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
             PlayInfo.instance._isFirstInit = false;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
             PlayInfo.Instance._adjustVector = Vector3.zero;
@@ -167,7 +167,7 @@ public class CharacterInput : MonoBehaviour {
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
-            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
             PlayInfo.instance._isFirstInit = false;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
             PlayInfo.Instance._adjustVector = Vector3.zero;

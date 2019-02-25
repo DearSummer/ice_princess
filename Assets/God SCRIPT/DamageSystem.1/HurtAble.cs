@@ -16,6 +16,8 @@ public class HurtAble : MonoBehaviour
     private Rigidbody fatherRig;
     [SerializeField]
     private EffectsSequence ef;
+    [SerializeField]
+    private ParticleSystem ps;
     // Use this for initialization
     void Start () {
         currentHp = maxHp;
@@ -60,8 +62,10 @@ public class HurtAble : MonoBehaviour
     }
     IEnumerator Destory()
     {
-        ef.RunEffect();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3f);
+        ps.Play();
+        //ef.RunEffect();
+        yield return new WaitForSeconds(0.5f);
         Explosion();
         Destroy(this.transform.parent.gameObject);
     }

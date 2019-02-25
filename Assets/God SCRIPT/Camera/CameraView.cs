@@ -88,7 +88,7 @@ namespace CamerScript
         }
         public void CameraShake()
         {
-            this.GetComponent<CameraShakeEffect>().enabled = true;
+
         }
     }
 }

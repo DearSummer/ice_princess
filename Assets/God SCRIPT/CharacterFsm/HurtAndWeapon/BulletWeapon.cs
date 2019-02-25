@@ -15,7 +15,6 @@ public class BulletWeapon : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer + "   " + other.name);
         if(other.gameObject.layer == 12&&other.name == "CharaGetHurt")
         {
             HurtData d = new HurtData(damage, this.gameObject);

@@ -30,7 +30,8 @@ public class CharaHurtAble : MonoBehaviour
             //根据伤害，来指定做一系列反应
             if (currentHp > 0)
             {
-                ani.SetTrigger("TakeDamage");
+                HurtReaction();
+
                 //fatherRig.AddForce(this.transform.forward * -5000,ForceMode.Acceleration);
             }
             else if (die == false)
@@ -39,5 +40,10 @@ public class CharaHurtAble : MonoBehaviour
                 //ani.SetBool("Die", true);
             }
         }
+    }
+    private void HurtReaction()
+    {
+        ani.SetTrigger("TakeDamage");
+        this.transform.parent.GetComponent<ControlFsm>().Translate(this.transform.parent.GetComponent<ControlFsm>().GetFsmAssemble(2));
     }
 }

@@ -14,20 +14,11 @@ public class Shoot : MonoBehaviour
     public Camera ca;
     void Start()
     {
-        
+        nextEffect();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            nextEffect();
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            previousEffect();
-        }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             shotable = true;

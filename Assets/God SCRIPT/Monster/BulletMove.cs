@@ -15,11 +15,11 @@ public class BulletMove : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        this.transform.position += dir * Time.deltaTime;
+        this.transform.position += dir * Time.deltaTime*2;
 	}
     IEnumerator DestroySelf()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         BulletPool.Instance.ReturnBullet(this.gameObject);
     }
 }

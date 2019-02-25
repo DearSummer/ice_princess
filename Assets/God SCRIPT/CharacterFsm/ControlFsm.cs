@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlFsm : MonoBehaviour {
-
     private Animator _ani;
     private BaseFsm _actionFsm = new ActionFsm();
     private BaseFsm _attackFsm = new AttackFsm();
