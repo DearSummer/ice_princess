@@ -21,8 +21,7 @@ public class ControlFsm : MonoBehaviour {
             return deltMove;
         }
     }
-
-    /////////////
+    
     public BaseFsm GetFsmAssemble(int num)
     {
         switch(num)
