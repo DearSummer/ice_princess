@@ -6,8 +6,6 @@ public class ShowOrHid : MonoBehaviour {
     [SerializeField]
     public GameObject LevitatedSword;
     public GameObject HandlerSword;
-    public GameObject LevitatedSwordRight;
-    public GameObject HandlerSwordRight;
     public void DisPlay(GameObject target,bool OpenOrClose)
     {
         if (OpenOrClose == false)

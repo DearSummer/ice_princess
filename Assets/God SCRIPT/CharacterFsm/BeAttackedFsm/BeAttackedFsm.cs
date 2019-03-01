@@ -24,7 +24,7 @@ public class BeAttackedFsm : BaseFsm
             {
                 if (Input.GetKeyDown(KeyCode.C))
                 {
-                    _time = -1f;
+                    _time = 1f;
                     _ani.SetTrigger("Dodge");
                     _currentFsm = _dodgeAttackFsm;
                     _currentFsm.PrepareEnter(_ani);

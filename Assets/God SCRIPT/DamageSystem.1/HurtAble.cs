@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.ImagyVFX.Scripts.EffectsSequence;
+using MonsterScript.Fsm;
 public class HurtAble : MonoBehaviour
 {
     private List<IMsgReceiver<HurtType, HurtData>> receiverList = new List<IMsgReceiver<HurtType, HurtData>>();
@@ -13,11 +13,9 @@ public class HurtAble : MonoBehaviour
     private Animator ani;
 
     [SerializeField]
-    private Rigidbody fatherRig;
-    [SerializeField]
-    private EffectsSequence ef;
-    [SerializeField]
     private ParticleSystem ps;
+    [SerializeField]
+    private FinalMachine finialMachine;
     // Use this for initialization
     void Start () {
         currentHp = maxHp;
@@ -39,7 +37,6 @@ public class HurtAble : MonoBehaviour
             receiverList.Remove(receiver);
         }
     }
-    private bool die = false;
     public  void GetHurt(HurtType ht,HurtData hd)
     {
         if(ht == HurtType.Damage)
@@ -48,13 +45,12 @@ public class HurtAble : MonoBehaviour
             //根据伤害，来指定做一系列反应
             if(currentHp>0)
             {
-                ani.SetTrigger("TakeDamage");
+                finialMachine.TranslateToDamge();
                 //fatherRig.AddForce(this.transform.forward * -5000,ForceMode.Acceleration);
                 
             }
-            else if(die==false)
+            else if(currentHp<0||currentHp==0)
             {
-                die = true;
                 ani.SetBool("Die", true);
                 StartCoroutine(Destory());
             }
@@ -63,7 +59,7 @@ public class HurtAble : MonoBehaviour
     IEnumerator Destory()
     {
         yield return new WaitForSeconds(3f);
-        ps.Play();
+        GameObject.Instantiate(ps, this.transform);
         //ef.RunEffect();
         yield return new WaitForSeconds(0.5f);
         Explosion();

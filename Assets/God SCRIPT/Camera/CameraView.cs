@@ -20,9 +20,6 @@ namespace CamerScript
 
         private bool FirstIn = false;
 
-        [SerializeField]
-        private GameObject player;
-
         private float ViewPoint = 60f;
         // Use this for initialization
         void Start()
