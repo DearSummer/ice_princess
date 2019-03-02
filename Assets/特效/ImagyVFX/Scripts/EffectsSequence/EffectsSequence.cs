@@ -14,7 +14,7 @@ namespace Assets.ImagyVFX.Scripts.EffectsSequence
             if (EffectParts.Length == 0)
                 return;
 
-            //RunEffect();
+            RunEffect();
         }
         public void RunEffect()
         {

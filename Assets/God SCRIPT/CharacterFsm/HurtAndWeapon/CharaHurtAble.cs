@@ -34,12 +34,10 @@ public class CharaHurtAble : MonoBehaviour
             {
                 HurtReaction();
 
-                //fatherRig.AddForce(this.transform.forward * -5000,ForceMode.Acceleration);
             }
             else if (die == false)
             {
                 die = true;
-                //ani.SetBool("Die", true);
             }
         }
     }

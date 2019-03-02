@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 47ffb7889a9258442bd2d237ac1dceae
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: mixamorig:Head
     100002: mixamorig:HeadTop_End
@@ -160,6 +160,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -193,14 +194,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.5019461
-        functionName: FireSkill
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.99690115
-        functionName: SkillEnd
+        functionName: MagicOne
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -233,6 +227,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

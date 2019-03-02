@@ -24,7 +24,8 @@ public class CharacterInput : MonoBehaviour {
     private float m_CameraRight = 0;
     private bool _enable = true;
 
-    private float m_timeLost = 0.0f;
+    private float m_timeLostX = 0.0f;
+    private float m_timeLostY = 0.0f;
     public bool InputEnable
     {
         set
@@ -107,14 +108,14 @@ public class CharacterInput : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (Time.time - m_timeLost <= 0.2f)
+            if (Time.time - m_timeLostX <= 0.2f)
             {
                 PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
                 PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
                 PlayInfo.Instance._adjustVector = new Vector3(0, 360, 0);
             }
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            m_timeLost = Time.time;
+            m_timeLostX = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
@@ -124,13 +125,13 @@ public class CharacterInput : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (Time.time - m_timeLost <= 0.2f)
+            if (Time.time - m_timeLostY <= 0.2f)
             {
                 PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
                 PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
                 PlayInfo.Instance._adjustVector = new Vector3(0,180,0);
             }
-            m_timeLost = Time.time;
+            m_timeLostY = Time.time;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
         }
         else if (Input.GetKeyUp(KeyCode.S))
@@ -141,12 +142,8 @@ public class CharacterInput : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (Time.time - m_timeLost <= 0.2f)
-            {
-                PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
-            }
+            PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            m_timeLost = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
@@ -156,12 +153,8 @@ public class CharacterInput : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (Time.time - m_timeLost <= 0.2f)
-            {
-                PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
-            }
+            PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            m_timeLost = Time.time;
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
