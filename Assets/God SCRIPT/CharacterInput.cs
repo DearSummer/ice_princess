@@ -127,7 +127,7 @@ public class CharacterInput : MonoBehaviour {
             if (Time.time - m_timeLost <= 0.2f)
             {
                 PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                PlayInfo.instance._isFirstInit = true;
+                PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
                 PlayInfo.Instance._adjustVector = new Vector3(0,180,0);
             }
             m_timeLost = Time.time;
@@ -138,7 +138,6 @@ public class CharacterInput : MonoBehaviour {
             PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
             PlayInfo.Instance._adjustVector = Vector3.zero;
-            PlayInfo.instance._isFirstInit = false;
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -152,7 +151,6 @@ public class CharacterInput : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.A))
         {
             if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-            PlayInfo.instance._isFirstInit = false;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
             PlayInfo.Instance._adjustVector = Vector3.zero;
         }
@@ -168,7 +166,6 @@ public class CharacterInput : MonoBehaviour {
         else if (Input.GetKeyUp(KeyCode.D))
         {
             if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-            PlayInfo.instance._isFirstInit = false;
             PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
             PlayInfo.Instance._adjustVector = Vector3.zero;
         }

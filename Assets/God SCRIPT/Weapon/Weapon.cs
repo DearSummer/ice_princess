@@ -7,7 +7,6 @@ public class Weapon : MonoBehaviour {
     public int damage = 20;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Get");
        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")&&other.name == "HpSystem")
        {
             HurtData d = new HurtData(damage, this.gameObject);

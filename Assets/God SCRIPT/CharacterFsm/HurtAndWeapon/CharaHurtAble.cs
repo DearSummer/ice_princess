@@ -10,6 +10,8 @@ public class CharaHurtAble : MonoBehaviour
     private int currentHp;
     [SerializeField]
     private Animator ani;
+    [SerializeField]
+    private float WhosYourDaddy = 0f;
     // Use this for initialization
     void Start()
     {
@@ -43,7 +45,11 @@ public class CharaHurtAble : MonoBehaviour
     }
     private void HurtReaction()
     {
-        ani.SetTrigger("TakeDamage");
-        this.transform.parent.GetComponent<ControlFsm>().Translate(this.transform.parent.GetComponent<ControlFsm>().GetFsmAssemble(2));
+        if((WhosYourDaddy--)<1f)
+        {
+            WhosYourDaddy = 1f;
+            ani.SetTrigger("TakeDamage");
+            this.transform.parent.GetComponent<ControlFsm>().Translate(this.transform.parent.GetComponent<ControlFsm>().GetFsmAssemble(2));
+        }
     }
 }

@@ -51,6 +51,7 @@ public class HurtAble : MonoBehaviour
             }
             else if(currentHp<0||currentHp==0)
             {
+                finialMachine.enabled = false;
                 ani.SetBool("Die", true);
                 StartCoroutine(Destory());
             }

@@ -8,7 +8,9 @@ namespace MonsterScript.Fsm
     {
         private Animator animator;
         private AudioSource audioSouce;
-        private  int DamageChoice =0;
+        private int DamageChoice =0;
+
+        private float defense = 0.5f;
         public void MyUpdate()
         {
             
@@ -18,8 +20,11 @@ namespace MonsterScript.Fsm
         {
             animator = ani;
             audioSouce = ads;
-            animator.SetInteger("DamageChoice", DamageChoice);
-            DamageChoice++;
+            if(Random.Range(0f,1f)>0.8f)
+            {
+                animator.SetInteger("DamageChoice", DamageChoice);
+                DamageChoice++;
+            }
             DamageChoice = DamageChoice > 1 ? 0 : DamageChoice;
         }
 

@@ -13,12 +13,13 @@ namespace MonsterScript.Fsm
         private GameObject My;
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log(other.name);
-            FinFsm.TranslateToRun();
+            if (other.name == "ForSearch")
+                FinFsm.TranslateToRun();
         }
         private void OnTriggerExit(Collider other)
         {
-            FinFsm.TranslateToIdle();
+            if (other.name == "ForSearch")
+                FinFsm.TranslateToIdle();
         }
         private void OnTriggerStay(Collider other)
         {
