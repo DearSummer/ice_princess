@@ -30,7 +30,7 @@ public class BeAttackedFsm : BaseFsm
                 {
 //                    _time = 1f;
 //                    _ani.SetTrigger("Dodge");
-//                    _currentFsm = _dodgeAttackFsm;
+                    _currentFsm = _dodgeAttackFsm;
 //                    _currentFsm.PrepareEnter(_ani);
                     director.Play(defaultAsset);
                 }
