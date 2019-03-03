@@ -10,6 +10,7 @@ public class BeAttackedFsm : BaseFsm
     private BaseFsm _currentFsm = null;
 
     private PlayableDirector director;
+    private PlayableAsset defaultAsset;
 
     private float _time = 0.3f;
     public BeAttackedFsm()
@@ -31,7 +32,7 @@ public class BeAttackedFsm : BaseFsm
 //                    _ani.SetTrigger("Dodge");
 //                    _currentFsm = _dodgeAttackFsm;
 //                    _currentFsm.PrepareEnter(_ani);
-                    director.Play();
+                    director.Play(defaultAsset);
                 }
             }
             else
@@ -53,6 +54,7 @@ public class BeAttackedFsm : BaseFsm
         _time = 0.3f;
 
         director = _ani.GetComponent<PlayableDirector>();
+        defaultAsset = _ani.GetComponent<PlayableColllection>().defaultAsset;
     }
 
     public override void PrepareExit(Animator _ani)
