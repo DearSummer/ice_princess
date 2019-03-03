@@ -9,6 +9,7 @@ namespace MonsterScript.PuppetMaster
         private BaseMonterFsm currentFsm;
         private BaseMonterFsm magicAttackFsm = new MasterMagicAttack();
         private BaseMonterFsm magicIdleFsm = new MasterIdle();
+        private BaseMonterFsm magicSearch = new MasterSearch();
         private Animator animator;
         private AudioSource audioSouce;
         private void Start()
@@ -31,6 +32,9 @@ namespace MonsterScript.PuppetMaster
                     break;
                 case 1:
                     currentFsm = magicAttackFsm;
+                    break;
+                case 2:
+                    currentFsm = magicSearch;
                     break;
             }
             currentFsm.PrepareEnter(animator, audioSouce);

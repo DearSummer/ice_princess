@@ -4,18 +4,18 @@ using UnityEngine;
 
 namespace MonsterScript.PuppetMaster
 {
-    public class MasterSearchForEnemy : MonoBehaviour
+    public class MasterAttackEnemy : MonoBehaviour
     {
-
         [SerializeField]
         private GameObject Target;
         [SerializeField]
         private MasterFinalFsm FinFsm;
         [SerializeField]
         private GameObject My;
+        // Use this for initialization
         private void OnTriggerEnter(Collider other)
         {
-            if (other.name == "ForSearch") { FinFsm.Translate(2); }
+            if (other.name == "ForSearch") { FinFsm.Translate(1); }
         }
         private void OnTriggerExit(Collider other)
         {

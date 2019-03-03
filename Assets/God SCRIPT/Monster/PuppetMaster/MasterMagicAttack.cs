@@ -12,14 +12,19 @@ namespace MonsterScript.PuppetMaster
         [SerializeField]
         private AudioSource audioSource;
 
-        private float dertaTime = 0f;
+        private float dertaTimeOne = 0f;
+        private float dertaTimeTwo = 20f;
         public void MyUpdate()
         {
-            if((dertaTime-=Time.deltaTime)<0f)
+            if((dertaTimeOne -= Time.deltaTime)<0f)
             {
-                animator.SetInteger("magicAttackChocie", magicAttackChoice);
-                animator.SetTrigger("test");
-                dertaTime = 15f;
+                animator.SetInteger("magicAttackChocie", 0);
+                dertaTimeOne = 15f;      
+            }
+            else if((dertaTimeTwo -= Time.deltaTime) < 0f)
+            {
+                animator.SetInteger("magicAttackChocie", 1);
+                dertaTimeTwo = 20f;
             }
         }
         public void PrepareEnter(Animator ani, AudioSource ads)
