@@ -11,6 +11,7 @@ namespace MonsterScript.Fsm
         private FinalMachine FinFsm;
         [SerializeField]
         private GameObject My;
+        private float TimeLock = 0.5f;
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "ForSearch")
@@ -23,10 +24,12 @@ namespace MonsterScript.Fsm
         }
         private void OnTriggerStay(Collider other)
         {
-            Vector3 dir =- My.transform.position + new Vector3(Target.transform.position.x,My.transform.position.y, Target.transform.position.z);
-            Debug.DrawRay(My.transform.position, dir, Color.blue);
-            My.transform.LookAt(My.transform.position + dir);
-            
+            if((TimeLock-=Time.deltaTime*2f)<0)
+            {
+                TimeLock = 0.5f;
+                Vector3 dir = -My.transform.position + new Vector3(Target.transform.position.x, My.transform.position.y, Target.transform.position.z);
+                My.transform.LookAt(My.transform.position + dir);
+            }
         }
     }
 }

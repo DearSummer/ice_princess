@@ -20,7 +20,7 @@ namespace MonsterScript.Fsm
         {
             animator = ani;
             audioSouce = ads;
-            if(Random.Range(0f,1f)>0.8f)
+            if(Random.Range(0f,1f)>0.2f)
             {
                 animator.SetInteger("DamageChoice", DamageChoice);
                 DamageChoice++;

@@ -5,12 +5,13 @@ namespace MonsterScript.Fsm
 {
     public class FinalMachine : MonoBehaviour
     {
-        private BaseMonterFsm currentFsm;
+        public BaseMonterFsm currentFsm;
         private Animator animator;
-        private BaseMonterFsm AttackFsm = new MonsterAttack();
+        public BaseMonterFsm AttackFsm = new MonsterAttack();
         private BaseMonterFsm IdleFsm = new MonsterIdle();
         private BaseMonterFsm RunFsm = new MonsterRun();
         private BaseMonterFsm HurtFsm = new MonsterHurt();
+        private bool CanTrans = true;
         //怪物声音播放
         [SerializeField]
         private AudioSource audioSouce;
@@ -25,6 +26,7 @@ namespace MonsterScript.Fsm
         // Update is called once per frame
         void Update()
         {
+
             currentFsm.MyUpdate();
         }
         private void Translate()
@@ -54,7 +56,6 @@ namespace MonsterScript.Fsm
             currentFsm.PrepareExit();
             HurtFsm.PrepareEnter(animator, audioSouce);
             currentFsm = HurtFsm;
-
         }
     }
 }

@@ -17,5 +17,13 @@ namespace MonsterScript.Fsm
         {
             this.GetComponent<Animator>().SetInteger("IdleTo", -1);
         }
+        [SerializeField]
+        private AudioSource audioSource;
+        public List<AudioClip> audioClips = new List<AudioClip>();
+        public void PlayAudio(int index)
+        {
+            audioSource.clip = audioClips[index];
+            audioSource.Play();
+        }
     }
 }

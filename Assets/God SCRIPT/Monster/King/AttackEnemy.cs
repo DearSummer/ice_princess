@@ -18,14 +18,21 @@ public class AttackEnemy : MonoBehaviour {
     }
     private void OnTriggerStay(Collider other)
     {
-        Vector3 dir = -My.transform.position + new Vector3(Target.transform.position.x, My.transform.position.y, Target.transform.position.z);
-        My.transform.LookAt(My.transform.position + dir);
+        if(FinFsm.currentFsm!=FinFsm.AttackFsm)
+        {
+            StartCoroutine(Trans());
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "ForSearch")
         {
-            FinFsm.TranslateToIdle();
+            FinFsm.TranslateToRun();
         }
+    }
+    IEnumerator Trans()
+    {
+        yield return new WaitForSeconds(1f);
+        FinFsm.TranslateToAttack();
     }
 }

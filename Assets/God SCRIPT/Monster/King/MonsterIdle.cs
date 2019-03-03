@@ -12,7 +12,7 @@ namespace MonsterScript.Fsm
         private float timeCalculator = 5f;
         public void MyUpdate()
         {
-            if((timeCalculator-=Time.deltaTime)<0f)
+            if((timeCalculator-=Time.deltaTime*Random.Range(0.5f,1f))<0f)
             {
                 timeCalculator = 5f;
                 IdleTo++;

@@ -12,6 +12,8 @@ public class CharaHurtAble : MonoBehaviour
     private Animator ani;
     [SerializeField]
     private float WhosYourDaddy = 0f;
+    [SerializeField]
+    private ParticleSystem blood;
     // Use this for initialization
     void Start()
     {
@@ -47,6 +49,7 @@ public class CharaHurtAble : MonoBehaviour
         {
             WhosYourDaddy = 1f;
             ani.SetTrigger("TakeDamage");
+            GameObject.Instantiate(blood, this.transform).Play();
             this.transform.parent.GetComponent<ControlFsm>().Translate(this.transform.parent.GetComponent<ControlFsm>().GetFsmAssemble(2));
         }
     }

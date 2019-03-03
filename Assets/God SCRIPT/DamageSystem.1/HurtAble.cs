@@ -16,6 +16,8 @@ public class HurtAble : MonoBehaviour
     private ParticleSystem ps;
     [SerializeField]
     private FinalMachine finialMachine;
+    [SerializeField]
+    private ParticleSystem blood;
     // Use this for initialization
     void Start () {
         currentHp = maxHp;
@@ -46,8 +48,9 @@ public class HurtAble : MonoBehaviour
             if(currentHp>0)
             {
                 finialMachine.TranslateToDamge();
+                GameObject.Instantiate(blood, this.transform).Play();
                 //fatherRig.AddForce(this.transform.forward * -5000,ForceMode.Acceleration);
-                
+
             }
             else if(currentHp<0||currentHp==0)
             {

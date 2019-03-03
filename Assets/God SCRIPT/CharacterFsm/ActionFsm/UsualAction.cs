@@ -6,9 +6,9 @@ namespace ActionSpace
 {
     public class UsualAction : BaseFsm
     {
-        private int _doubleX = 1;//控制是否跑动
+        private int _doubleX = 2;//控制是否跑动
         private float _tempX = 1;//用来作为跑动lerp的插值
-        private int _doubleY = 1;
+        private int _doubleY = 2;
         private float _tempY = 1;
 
         private Animator _ani;//人物控制器
@@ -43,9 +43,9 @@ namespace ActionSpace
         {
             TransmitInfo(_ani);
             _tempX = 1;
-            _doubleX = 1;
+            _doubleX = 2;
             _tempY = 1;
-            _doubleY = 1;
+            _doubleY = 2;
         }
         private void LocalMotion(Animator _ani)//专门用来移动的
         {
@@ -64,7 +64,7 @@ namespace ActionSpace
             }
             else
             {
-                _doubleX = 1;
+                _doubleX = 2;
             }
             if(PlayInfo.Instance._adjustVector.y==90|| PlayInfo.Instance._adjustVector.y==-90)
             {
@@ -72,7 +72,7 @@ namespace ActionSpace
             }
             else
             {
-                _doubleY = 1;
+                _doubleY = 2;
             }
         }
 
