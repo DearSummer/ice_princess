@@ -613,8 +613,8 @@ GameObject:
   - component: {fileID: 4448725885766216}
   - component: {fileID: 33884863130576056}
   - component: {fileID: 23568040127270914}
-  - component: {fileID: 65358136005427920}
   - component: {fileID: 114559675920704384}
+  - component: {fileID: 65016181195725170}
   m_Layer: 13
   m_Name: sword
   m_TagString: Untagged
@@ -1856,6 +1856,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65016181195725170
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1627443187345320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.49, y: 0.26, z: 2.41}
+  m_Center: {x: 0.18492812, y: 0.102758855, z: 1.45}
 --- !u!65 &65328247481877526
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1868,18 +1880,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 2.61, z: 5}
   m_Center: {x: 0, y: 0.32, z: 0}
---- !u!65 &65358136005427920
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627443187345320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.16, z: 3.12}
-  m_Center: {x: 0.18500425, y: 0.17, z: 1.33}
 --- !u!65 &65802054441946226
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889a657be6a588e4e82e092fe39a2ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 65016181195725170}
   audioSource: {fileID: 82448315199514950}
   audioClips:
   - {fileID: 8300000, guid: 3a7ba33f3b8ed074d840612659539f32, type: 3}

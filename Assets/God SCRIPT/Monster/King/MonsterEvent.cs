@@ -6,6 +6,14 @@ namespace MonsterScript.Fsm
 {
     public class MonsterEvent : MonoBehaviour
     {
+
+        public Collider col;
+
+        private void Start()
+        {
+            col.enabled = false;
+        }
+
         public void AttackEvent()
         {
             int attackChoice = this.GetComponent<Animator>().GetInteger("AttackChoice");
@@ -24,6 +32,17 @@ namespace MonsterScript.Fsm
         {
             audioSource.clip = audioClips[index];
             audioSource.Play();
+        }
+
+        public void StartAttack()
+        {
+            col.enabled = true;
+        }
+
+        public void EndAttack()
+        {
+            if (col.enabled)
+                col.enabled = false;
         }
     }
 }
