@@ -15,9 +15,6 @@ namespace CamerScript
 
         private bool Open = false;
 
-        [SerializeField]
-        private GameObject preEffect;
-
         private bool FirstIn = false;
 
         private float ViewPoint = 60f;
@@ -53,7 +50,6 @@ namespace CamerScript
         {
             FirstIn = true;
             postProcess.enabled = true;
-            preEffect.SetActive(true);
             ViewPoint = 90f;
             //PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
             Open = true;
@@ -63,16 +59,14 @@ namespace CamerScript
             ViewPoint = 60f;
             FirstIn = false;
             postProcess.enabled = false;
-            preEffect.SetActive(false);
             Open = false;
             //关闭跑步
-            PlayInfo.Instance._actionInfo= PlayInfo.actionInfo.Run;
+            PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
             _ani.SetTrigger("RunExit");
         }
         public void ForWardSpecialAttack()
         {
             ViewPoint = 90f;
-            preEffect.SetActive(true);
             _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.forward * 2000);
             _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.up * 1500);
             StartCoroutine(BackToNormal());
@@ -80,7 +74,6 @@ namespace CamerScript
         IEnumerator BackToNormal()
         {
             yield return new WaitForSeconds(1);
-            preEffect.SetActive(false);
             ViewPoint = 60f;
         }
         public void CameraShake()

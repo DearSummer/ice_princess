@@ -34,19 +34,12 @@ public class ActionFsm : BaseFsm
     public override void MyFixUpdate(Animator _ani)
     {
         _currentFsm.MyFixUpdate(_ani);
-        LocalRotation();//旋转
     }
     public void Translate(BaseFsm nextFsm)
     {
         _currentFsm.PrepareExit(_ani);
         _currentFsm = nextFsm;
         _currentFsm.PrepareEnter(_ani);
-    }
-    private void LocalRotation()//专门用来旋转的
-    {
-
-        player.transform.Rotate(player.transform.up, 45f * 10.0f * Time.deltaTime * CharacterInput.Instance.m_MovementRight);
-
     }
     public override void PrepareEnter(Animator ani)
     {

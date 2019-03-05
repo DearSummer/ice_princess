@@ -36,8 +36,9 @@ namespace CamerScript
         private void LateUpdate()
         {
             MyUpdate();
+            CameraMove();
         }
-        private void FixedUpdate()
+        private void CameraMove()
         {
             offest = _follow.GetComponent<ControlFsm>().GetDoitMove;
             this.transform.position += offest;
@@ -48,7 +49,7 @@ namespace CamerScript
             this.transform.position = LookAt.transform.position - dir * distance;
             //this.transform.LookAt(LookAt.transform.position);
             TransX();
-            TransY(dir);
+            TransY();
             offest = _center.transform.position - this.transform.position;
             //this.transform.LookAt(LookAt.transform);
         }
@@ -64,7 +65,7 @@ namespace CamerScript
         {
             this.transform.RotateAround(_center.transform.position, _center.transform.up, CharacterInput.Instance.CamerVector.x * 5);
         }
-        private void TransY(Vector3 _dir)
+        private void TransY()
         {
             RaycastHit hit;
             if(Physics.Linecast(this.transform.position,LookAt.transform.position,out hit))

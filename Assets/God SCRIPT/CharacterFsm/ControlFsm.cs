@@ -1,9 +1,9 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlFsm : MonoBehaviour {
+public class ControlFsm : MonoBehaviour
+{
     private Animator _ani;
     private BaseFsm _actionFsm = new ActionFsm();
     private BaseFsm _attackFsm = new AttackFsm();
@@ -21,10 +21,10 @@ public class ControlFsm : MonoBehaviour {
             return deltMove;
         }
     }
-    
+
     public BaseFsm GetFsmAssemble(int num)
     {
-        switch(num)
+        switch (num)
         {
             case 0:
                 return _actionFsm;
@@ -42,8 +42,9 @@ public class ControlFsm : MonoBehaviour {
     {
         get { return _currentFsm; }
     }
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         _ani = this.GetComponentInChildren<Animator>();
         _currentFsm = _actionFsm;
         _currentFsm.PrepareEnter(_ani);
@@ -53,9 +54,10 @@ public class ControlFsm : MonoBehaviour {
 
         _input = this.GetComponent<CharacterInput>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         _currentFsm.MyUpdate(_ani);
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -69,6 +71,7 @@ public class ControlFsm : MonoBehaviour {
             this.GetComponentInChildren<AnimEvent>().SwordIdle();
             _ani.SetTrigger("SprintNow");
         }
+        ForCamera();
     }
 
     public void Translate(BaseFsm nextFsm)
@@ -86,10 +89,6 @@ public class ControlFsm : MonoBehaviour {
     {
         _currentFsm.MyFixUpdate(_ani);
         FollowWithCamera();
-        this.transform.position += (animMove);
-        deltMove = this.transform.position - lastPosition;
-        lastPosition = this.transform.position;
-        animMove = Vector3.zero;
     }
     private Vector3 deltMove = Vector3.zero;
     private Vector3 lastPosition = Vector3.zero;
@@ -97,24 +96,32 @@ public class ControlFsm : MonoBehaviour {
     {
         animMove += vec;
     }
-
+    private void ForCamera()
+    {
+        this.transform.position += (animMove);
+        deltMove = this.transform.position - lastPosition;
+        lastPosition = this.transform.position;
+        animMove = Vector3.zero;
+    }
     private void FollowWithCamera()
     {
-        if(_input.m_MovementForward!=0||_input.m_MovementRight!=0)
+        float dirX = Mathf.Abs(_input.m_MovementForward - 0) > 0.2f ? 1 : 0;
+        float dirY = Mathf.Abs(_input.m_MovementRight - 0) > 0.2f ? 1 : 0;
+        if (dirX != 0 || dirY != 0)
         {
-            int dirX = _input.m_MovementForward > 0 ? 0 : -1;
-            //int dirY = _input.m_MovementRight > 0 ? 1 : -1;
             Vector3 todir = Vector3.zero;
-            if(_input.m_MovementForward!=0)
+            if (dirX != 0)
             {
-                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y+180*dirX, this.transform.rotation.z);
+                dirX = _input.m_MovementForward > 0 ? 0 : -1;
+                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y + 180 * dirX, this.transform.rotation.z);
             }
-            else
+            if (dirY != 0)
             {
-                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y, this.transform.rotation.z);
+                dirY = _input.m_MovementRight > 0 ? 1 : -1;
+                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y + 90 * dirY, this.transform.rotation.z);
             }
             Quaternion todirQuateranion = Quaternion.Euler(todir);
-            Quaternion c = Quaternion.Slerp(this.transform.rotation, todirQuateranion, 0.1f);
+            Quaternion c = Quaternion.Slerp(this.transform.rotation, todirQuateranion, Time.deltaTime * 5);
             this.transform.rotation = c;
         }
     }
