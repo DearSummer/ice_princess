@@ -23,10 +23,7 @@ namespace MonsterScript.PuppetMaster
         }
         private void OnTriggerStay(Collider other)
         {
-            Vector3 dir = -My.transform.position + new Vector3(Target.transform.position.x, My.transform.position.y, Target.transform.position.z);
-            Debug.DrawRay(My.transform.position, dir, Color.blue);
-            My.transform.LookAt(My.transform.position + dir);
-
+            My.transform.LookAt(new Vector3(Target.transform.position.x, My.transform.position.y, Target.transform.position.z));
         }
     }
 }
