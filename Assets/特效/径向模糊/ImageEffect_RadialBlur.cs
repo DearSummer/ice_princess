@@ -18,15 +18,16 @@ public class ImageEffect_RadialBlur : MonoBehaviour {
 
 
 	#endregion
-	
 
-void Start () {
-		FindShaders ();
-		CheckSupport ();
-		CreateMaterials ();
-	}
 
-	void FindShaders () {
+    void Start()
+    {
+        FindShaders();
+        CheckSupport();
+        CreateMaterials();
+    }
+
+    void FindShaders () {
 		if (!RadialBlurShader) {
 			RadialBlurShader = Shader.Find("PengLu/ImageEffect/Unlit/RadialBlur");
 		}

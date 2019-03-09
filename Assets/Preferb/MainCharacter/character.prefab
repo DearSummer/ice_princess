@@ -3920,7 +3920,7 @@ GameObject:
   - component: {fileID: 4012493263234590}
   - component: {fileID: 114346677592198890}
   - component: {fileID: 65570762251912286}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4660,7 +4660,7 @@ Transform:
   m_Children:
   - {fileID: 4305666100672272}
   m_Father: {fileID: 4614740973990746}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 500.67}
 --- !u!4 &4135262530614006
 Transform:
@@ -6132,7 +6132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4614740973990746}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4522304927224352
 Transform:
@@ -6472,14 +6472,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670840407272068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.95, y: 386.604, z: -116.08}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4524425254319284}
   - {fileID: 4011472441608254}
   - {fileID: 4105007855720132}
-  - {fileID: 4135246266128578}
   - {fileID: 4513418525609818}
+  - {fileID: 4135246266128578}
   - {fileID: 4078651460937666}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -9016,14 +9016,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1.3
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 131
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 10
@@ -9387,7 +9387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomPitch: 1
   randomPitchRange: 0.2
-  playDelay: 2
+  playDelay: 0
   sound:
     name: 
     clips:
