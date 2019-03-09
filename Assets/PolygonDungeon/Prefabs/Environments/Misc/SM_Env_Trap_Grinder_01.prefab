@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 411852}
   - component: {fileID: 3373408}
   - component: {fileID: 2368662}
+  - component: {fileID: 64402190009930020}
   m_Layer: 0
   m_Name: SM_Env_Trap_Grinder_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146398}
   m_IsPrefabAsset: 1
+--- !u!64 &64402190009930020
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 569aa3e378e008f4e9f5c430e2c26e09, type: 3}

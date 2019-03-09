@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 478960}
   - component: {fileID: 3395324}
   - component: {fileID: 2380360}
+  - component: {fileID: 64997485592533430}
   m_Layer: 0
   m_Name: SM_Env_Background_Black_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 189884}
   m_IsPrefabAsset: 1
+--- !u!64 &64997485592533430
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 5809542b383228840ba73e886d87ae73, type: 3}

@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 430350}
   - component: {fileID: 3319334}
   - component: {fileID: 2384486}
+  - component: {fileID: 64098982239349422}
   m_Layer: 0
   m_Name: SM_Env_Gem_Spike_02
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147340}
   m_IsPrefabAsset: 1
+--- !u!64 &64098982239349422
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147340}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 2a2ec24812c31c247b96f441a76c8797, type: 3}

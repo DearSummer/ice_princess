@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 458376}
   - component: {fileID: 3342412}
   - component: {fileID: 2387366}
+  - component: {fileID: 64572535788930304}
   m_Layer: 0
   m_Name: SM_Env_Ceiling_Stone_Pillar_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134854}
   m_IsPrefabAsset: 1
+--- !u!64 &64572535788930304
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0628451ff329dfc42bc023a92dee1203, type: 3}

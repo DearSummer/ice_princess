@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 412494}
   - component: {fileID: 3354050}
   - component: {fileID: 2376088}
+  - component: {fileID: 64822447843754556}
   m_Layer: 0
   m_Name: SM_Env_Ceiling_Stone_Flat_04
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 174938}
   m_IsPrefabAsset: 1
+--- !u!64 &64822447843754556
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 97360b0251bf1da4b961b8e6123f700f, type: 3}

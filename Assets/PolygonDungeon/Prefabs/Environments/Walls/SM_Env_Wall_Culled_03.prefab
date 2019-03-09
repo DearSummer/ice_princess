@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 434470}
   - component: {fileID: 3394864}
   - component: {fileID: 2313108}
+  - component: {fileID: 64319209558216422}
   m_Layer: 0
   m_Name: SM_Env_Wall_Culled_03
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195876}
   m_IsPrefabAsset: 1
+--- !u!64 &64319209558216422
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: bf0fec2c35174494893c1eafc5b13425, type: 3}

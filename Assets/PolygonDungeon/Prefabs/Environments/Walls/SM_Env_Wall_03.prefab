@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 446176}
   - component: {fileID: 3366708}
   - component: {fileID: 2370236}
+  - component: {fileID: 64476472202961204}
   m_Layer: 0
   m_Name: SM_Env_Wall_03
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 189982}
   m_IsPrefabAsset: 1
+--- !u!64 &64476472202961204
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7b6fc4d4a2910f84e8487af00020cbc4, type: 3}

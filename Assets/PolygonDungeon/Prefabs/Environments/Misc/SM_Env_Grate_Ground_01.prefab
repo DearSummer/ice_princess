@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 468176}
   - component: {fileID: 3398192}
   - component: {fileID: 2316952}
+  - component: {fileID: 64460912727543910}
   m_Layer: 0
   m_Name: SM_Env_Grate_Ground_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122248}
   m_IsPrefabAsset: 1
+--- !u!64 &64460912727543910
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122248}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: feed3d36b1754f94ab96e698863ebc0a, type: 3}

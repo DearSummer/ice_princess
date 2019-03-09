@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 451930}
   - component: {fileID: 3323196}
   - component: {fileID: 2378144}
+  - component: {fileID: 64665299201036890}
   m_Layer: 0
   m_Name: SM_Env_Roots_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178538}
   m_IsPrefabAsset: 1
+--- !u!64 &64665299201036890
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 34aad57c56127944694b09d3ecadcb5a, type: 3}

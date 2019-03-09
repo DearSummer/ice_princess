@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 461420}
   - component: {fileID: 3310990}
   - component: {fileID: 2364552}
+  - component: {fileID: 64274604124157934}
   m_Layer: 0
   m_Name: SM_Env_Wall_End_Coner_Outer_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193824}
   m_IsPrefabAsset: 1
+--- !u!64 &64274604124157934
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193824}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 7b12883de5089af438e414faf3557797, type: 3}

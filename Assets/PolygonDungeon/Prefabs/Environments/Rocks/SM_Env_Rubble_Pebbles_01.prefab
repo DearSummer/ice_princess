@@ -10,7 +10,6 @@ GameObject:
   - component: {fileID: 452598}
   - component: {fileID: 3347376}
   - component: {fileID: 2375570}
-  - component: {fileID: 64109907880423848}
   m_Layer: 0
   m_Name: SM_Env_Rubble_Pebbles_01
   m_TagString: Untagged
@@ -84,17 +83,3 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168602}
   m_IsPrefabAsset: 1
---- !u!64 &64109907880423848
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 3f8f0120dfeef6440b0acc86edb08b23, type: 3}

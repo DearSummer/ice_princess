@@ -10,8 +10,7 @@ GameObject:
   - component: {fileID: 462032}
   - component: {fileID: 3337338}
   - component: {fileID: 2392810}
-  - component: {fileID: 64899966239143900}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SM_Env_Rubble_Pebbles_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,9 +23,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0.000002324581}
+  m_LocalPosition: {x: 1.914, y: -4.91, z: 41.9}
+  m_LocalScale: {x: 1.4446735, y: 2.497072, z: 1.4446735}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,17 +83,3 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179920}
   m_IsPrefabAsset: 1
---- !u!64 &64899966239143900
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179920}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 63b080f188bd92446b2de42b27fd58f9, type: 3}

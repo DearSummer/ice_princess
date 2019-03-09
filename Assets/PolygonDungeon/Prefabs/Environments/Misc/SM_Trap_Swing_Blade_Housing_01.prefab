@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 476206}
   - component: {fileID: 3382684}
   - component: {fileID: 2354004}
+  - component: {fileID: 64834447129406918}
   m_Layer: 0
   m_Name: SM_Trap_Swing_Blade_Housing_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127436}
   m_IsPrefabAsset: 1
+--- !u!64 &64834447129406918
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 8e4a2ec0c45087147b6889f9c8778b00, type: 3}

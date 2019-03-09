@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 409580}
   - component: {fileID: 3314378}
   - component: {fileID: 2337974}
+  - component: {fileID: 64309830257561844}
   m_Layer: 0
   m_Name: SM_Env_Ceiling_Stone_Curved_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180038}
   m_IsPrefabAsset: 1
+--- !u!64 &64309830257561844
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 73223791454a5fb4991a45f96c4fd7d4, type: 3}

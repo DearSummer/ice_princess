@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 421208}
   - component: {fileID: 3371094}
   - component: {fileID: 2329274}
+  - component: {fileID: 64166711175665102}
   m_Layer: 0
   m_Name: SM_Env_Wall_DoorFrame_Round_01
   m_TagString: Untagged
@@ -83,3 +84,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116930}
   m_IsPrefabAsset: 1
+--- !u!64 &64166711175665102
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: b54c3b2c574e90b4ca736a3bba9efb45, type: 3}
