@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AnimatorScript;
+using God_SCRIPT.Audio;
+
 namespace ActionSpace
 {
     public class UsualAction : BaseFsm
