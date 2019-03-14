@@ -9562,6 +9562,22 @@ MonoBehaviour:
   ani: {fileID: 95036421962835138}
   WhosYourDaddy: 0
   blood: {fileID: 19829336, guid: 8ca10fb339a170348bbbaf2b7b9ec1da, type: 2}
+  OnBloodChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: set_value
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: God_SCRIPT.Event.FUnityEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114905420734591332
 MonoBehaviour:
   m_ObjectHideFlags: 1

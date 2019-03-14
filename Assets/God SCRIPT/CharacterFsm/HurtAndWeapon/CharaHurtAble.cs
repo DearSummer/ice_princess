@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using God_SCRIPT.Event;
 using UnityEngine;
 
 public class CharaHurtAble : MonoBehaviour
@@ -14,6 +15,8 @@ public class CharaHurtAble : MonoBehaviour
     private float WhosYourDaddy = 0f;
     [SerializeField]
     private ParticleSystem blood;
+
+    public FUnityEvent OnBloodChanged;
     // Use this for initialization
     void Start()
     {
@@ -31,6 +34,7 @@ public class CharaHurtAble : MonoBehaviour
         if (ht == HurtType.Damage)
         {
             currentHp = (currentHp - hd.damageFigure) > 0 ? currentHp - hd.damageFigure : 0;
+            OnBloodChanged.Invoke((float)currentHp / maxHp);
             //根据伤害，来指定做一系列反应
             if (currentHp > 0)
             {
