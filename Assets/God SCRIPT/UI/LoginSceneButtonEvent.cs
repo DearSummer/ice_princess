@@ -6,15 +6,6 @@ namespace God_SCRIPT.UI
 {
     public class LoginSceneButtonEvent : MonoBehaviour {
 
-        public void LoadLevel(string levelName)
-        {
-            SceneManager.LoadScene(levelName);
-        }
-
-        public void LoadLevel(int level)
-        {
-            SceneManager.LoadScene(level);
-        }
 
         public void ExitGame()
         {
