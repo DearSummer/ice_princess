@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using God_SCRIPT;
 using UnityEngine;
 
 namespace CamerScript

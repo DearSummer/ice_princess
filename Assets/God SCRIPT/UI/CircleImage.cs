@@ -143,7 +143,7 @@ namespace God_SCRIPT.UI
 
         }
 
-        public override bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
+        public override bool IsRaycastLocationValid(Vector2 screenPoint, UnityEngine.Camera eventCamera)
         {
             Sprite sprite = overrideSprite;
             if (sprite == null)

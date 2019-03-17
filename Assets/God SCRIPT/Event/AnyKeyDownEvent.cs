@@ -12,7 +12,7 @@ namespace God_SCRIPT.Event
 	
         // Update is called once per frame
         void Update () {
-            if (Input.anyKeyDown)
+            if (UnityEngine.Input.anyKeyDown)
             {
                 OnAnyKeyDown.Invoke();
             }

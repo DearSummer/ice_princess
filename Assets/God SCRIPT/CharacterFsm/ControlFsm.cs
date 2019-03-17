@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using God_SCRIPT;
 using UnityEngine;
 
 public class ControlFsm : MonoBehaviour
@@ -88,7 +90,6 @@ public class ControlFsm : MonoBehaviour
     private void FixedUpdate()
     {
         _currentFsm.MyFixUpdate(_ani);
-        FollowWithCamera();
     }
     private Vector3 deltMove = Vector3.zero;
     private Vector3 lastPosition = Vector3.zero;
@@ -103,26 +104,5 @@ public class ControlFsm : MonoBehaviour
         lastPosition = this.transform.position;
         animMove = Vector3.zero;
     }
-    private void FollowWithCamera()
-    {
-        float dirX = Mathf.Abs(_input.m_MovementForward - 0) > 0.2f ? 1 : 0;
-        float dirY = Mathf.Abs(_input.m_MovementRight - 0) > 0.2f ? 1 : 0;
-        if (dirX != 0 || dirY != 0)
-        {
-            Vector3 todir = Vector3.zero;
-            if (dirX != 0)
-            {
-                dirX = _input.m_MovementForward > 0 ? 0 : -1;
-                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y + 180 * dirX, this.transform.rotation.z);
-            }
-            if (dirY != 0)
-            {
-                dirY = _input.m_MovementRight > 0 ? 1 : -1;
-                todir = new Vector3(this.transform.rotation.x, _followCamera.transform.rotation.eulerAngles.y + 90 * dirY, this.transform.rotation.z);
-            }
-            Quaternion todirQuateranion = Quaternion.Euler(todir);
-            Quaternion c = Quaternion.Slerp(this.transform.rotation, todirQuateranion, Time.deltaTime * 5);
-            this.transform.rotation = c;
-        }
-    }
+
 }

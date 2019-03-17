@@ -104,7 +104,7 @@ namespace God_SCRIPT.UI
         #endregion
 
         #region ICanvasRaycastFilter
-        public virtual bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
+        public virtual bool IsRaycastLocationValid(Vector2 screenPoint, UnityEngine.Camera eventCamera)
         {
             return true;
         }

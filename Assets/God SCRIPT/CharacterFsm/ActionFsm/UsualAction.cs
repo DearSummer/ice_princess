@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using AnimatorScript;
+using God_SCRIPT;
 using God_SCRIPT.Audio;
+using God_SCRIPT.Camera;
 
 namespace ActionSpace
 {
@@ -16,6 +18,7 @@ namespace ActionSpace
         private Animator _ani;//人物控制器
 
         private GameObject player = null;
+        private CameraTurn cameraTurn;
 
         private RandomAudioPlayer _audio;
 
@@ -39,6 +42,10 @@ namespace ActionSpace
                 player = GameObject.FindGameObjectWithTag("Player");
             }
 
+            if (cameraTurn == null)
+            {
+                cameraTurn = player.GetComponent<CameraTurn>();
+            }
             _audio = _ani.GetComponent<RandomAudioPlayer>();
         }
         public override void PrepareExit(Animator _ani)
@@ -110,6 +117,11 @@ namespace ActionSpace
         {
             //要想办法解决，有时候trigger没有被触发
             //_ani.ResetTrigger("RunExit");
+            if (_ani.GetFloat("forward") > 1f)
+            {
+                cameraTurn.FollowWithCamera();
+            }
+                
         }
         private void TransmitInfo(Animator _ani)
         {

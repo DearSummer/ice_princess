@@ -10,6 +10,7 @@ GameObject:
   - component: {fileID: 493996}
   - component: {fileID: 3316034}
   - component: {fileID: 2316472}
+  - component: {fileID: 64943037163072994}
   m_Layer: 0
   m_Name: SM_Prop_Chest_03
   m_TagString: Untagged
@@ -156,3 +157,17 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144976}
   m_IsPrefabAsset: 1
+--- !u!64 &64943037163072994
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 10736031d03b05145aa00c737e533cb4, type: 3}
