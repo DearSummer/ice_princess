@@ -21,4 +21,9 @@ public class BulletWeapon : MonoBehaviour {
             other.GetComponent<CharaHurtAble>().GetHurt(HurtType.Damage, d);
         }
     }
+    IEnumerator  destory()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(this.gameObject);
+    }
 }

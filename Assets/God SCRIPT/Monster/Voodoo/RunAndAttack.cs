@@ -6,7 +6,6 @@ namespace MonsterScript.Voodoo
 {
     public class RunAndAttack : MonoBehaviour
     {
-        [SerializeField]
         private GameObject Target;
         [SerializeField]
         private GameObject My;
@@ -18,6 +17,10 @@ namespace MonsterScript.Voodoo
         private AudioSource audiosource;
         [SerializeField]
         private GameObject disapper;
+        private void Start()
+        {
+            Target = GameObject.Find("character");
+        }
         private void OnTriggerEnter(Collider other)
         {
             if(other.name == "ForSearch")

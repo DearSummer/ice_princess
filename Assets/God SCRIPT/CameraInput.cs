@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using God_SCRIPT;
 using UnityEngine;
 
 public class CameraInput : MonoBehaviour {

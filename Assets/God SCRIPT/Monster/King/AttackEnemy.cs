@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using MonsterScript.Fsm;
 public class AttackEnemy : MonoBehaviour {
-    [SerializeField]
     private GameObject Target;
     [SerializeField]
     private FinalMachine FinFsm;
     [SerializeField]
     private GameObject My;
+    private void Start()
+    {
+        Target = GameObject.Find("character");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "ForSearch")

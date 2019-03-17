@@ -1,192 +1,184 @@
-﻿using UnityEngine;
+﻿ using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-namespace God_SCRIPT
-{
-    public class CharacterInput : MonoBehaviour {
+public class CharacterInput : MonoBehaviour {
+    [SerializeField]
+    private string _keyOfForward;
+    [SerializeField]
+    private string _keyOfBack;
+    [SerializeField]
+    private string _keyOfRight;
+    [SerializeField]
+    private string _keyOfLeft;
 
-        public string keyUp;
-        public string keyDown;
-        public string keyLeft;
-        public string keyRight;
+    [SerializeField]
+    private Vector2 m_Movement = Vector2.zero;
+    [SerializeField]
+    private Vector2 m_Camera   = Vector2.zero;
 
+    public float m_MovementForward = 0;
+    public float m_MovementRight = 0;
 
-        [Space(1)]
-        public string keyJump;
-        public string keyElfAttack;
+    private float m_CameraForward = 0;
+    private float m_CameraRight = 0;
+    private bool _enable = true;
 
-        public string keyBack;
-
-        [SerializeField]
-        private Vector2 m_Movement = Vector2.zero;
-        [SerializeField]
-        private Vector2 m_Camera   = Vector2.zero;
-
-        public float m_MovementForward = 0;
-        public float m_MovementRight = 0;
-
-        private float m_CameraForward = 0;
-        private float m_CameraRight = 0;
-        private bool _enable = true;
-
-        private float m_timeLostX = 0.0f;
-        private float m_timeLostY = 0.0f;
-        public bool InputEnable
+    private float m_timeLostX = 0.0f;
+    private float m_timeLostY = 0.0f;
+    public bool InputEnable
+    {
+        set
         {
-            set
-            {
-                _enable = value;
-                m_MovementForward = 0;
-                m_MovementRight = 0;
-                m_Movement.x = 0;
-                m_Movement.y = 0;
-            }
-            get
-            {
-                return _enable;
-            }
+            _enable = value;
+            m_MovementForward = 0;
+            m_MovementRight = 0;
+            m_Movement.x = 0;
+            m_Movement.y = 0;
         }
+        get
+        {
+            return _enable;
+        }
+    }
 
-        public float InputMagic
-        {
-            get { return Mathf.Sqrt(m_Movement.x * m_Movement.x + m_Movement.y + m_Movement.y); }
-        }
 
-        public Vector2 InputVector
-        {
-            get
-            {
-                return m_Movement;
-            }
-        }
-        public Vector2 CamerVector
-        {
-            get
-            {
-                return m_Camera;
-            }
-        }
-    
-        private static CharacterInput instance;
-        public static CharacterInput Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
 
-        private void Awake()
+    public Vector2 InputVector
+    {
+        get
         {
-            instance = this;
+            return m_Movement;
         }
-        // Use this for initialization
-        void Start ()
+    }
+    public Vector2 CamerVector
+    {
+        get
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            return m_Camera;
         }
+    }
+
+    public float InputMagic
+    {
+        get { return Mathf.Sqrt(m_Movement.x * m_Movement.x + m_Movement.y * m_Movement.y); }
+    }
+
+    private static CharacterInput instance;
+    public static CharacterInput Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    // Use this for initialization
+    void Start () {
+		
+	}
 	
-        // Update is called once per frame
-        void Update () {
+	// Update is called once per frame
+	void Update ()
+	{
 
-            if(_enable)
-            {
-                GetKeyBoard();
-            }
-            GetMouse();
-            WalkOrRun();
-        }
-        private void GetKeyBoard()
+	    Cursor.lockState = CursorLockMode.Locked;
+
+        if(_enable)
         {
-            m_MovementRight = UnityEngine.Input.GetAxis("Horizontal");
-            m_MovementForward = UnityEngine.Input.GetAxis("Vertical");
-            //translate to circle coordinates
-            m_Movement.x = m_MovementRight * Mathf.Sqrt(1 - (m_MovementForward * m_MovementForward) / 2.0f);
-            m_Movement.y = m_MovementForward * Mathf.Sqrt(1 - (m_MovementRight * m_MovementRight) / 2.0f);
+            GetKeyBoard();
         }
-        private void GetMouse()
+        GetMouse();
+        WalkOrRun();
+    }
+    private void GetKeyBoard()
+    {
+        m_MovementRight = Input.GetAxis("Horizontal");
+        m_MovementForward = Input.GetAxis("Vertical");
+        //translate to circle coordinates
+        m_Movement.x = m_MovementRight * Mathf.Sqrt(1 - (m_MovementForward * m_MovementForward) / 2.0f);
+        m_Movement.y = m_MovementForward * Mathf.Sqrt(1 - (m_MovementRight * m_MovementRight) / 2.0f);
+    }
+    private void GetMouse()
+    {
+        m_CameraForward = float.IsNaN(Input.GetAxis("Mouse Y")) ?0: Input.GetAxis("Mouse Y");
+        m_CameraRight = float.IsNaN(Input.GetAxis("Mouse X")) ? 0:Input.GetAxis("Mouse X");
+        //translate to circle coordinates
+        m_Camera.x = m_CameraRight * Mathf.Sqrt(1 - (m_CameraForward * m_CameraForward) / 2.0f);
+        m_Camera.x = float.IsNaN(m_Camera.x) ? 0:m_Camera.x;
+        m_Camera.y = m_CameraForward * Mathf.Sqrt(1 - (m_CameraRight * m_CameraRight) / 2.0f);
+        m_Camera.y = float.IsNaN(m_Camera.y) ? 0 : m_Camera.y;
+    }
+    //用于攻击的时候是否进入跑的状态，由于为了更强的效果，所以进入跑这个应该是所有状态都能够进入，思来想去，放在这个里面最为合适
+    private void WalkOrRun()
+    {
+        if (Input.GetKeyDown(_keyOfForward))
         {
-            m_CameraForward = float.IsNaN(UnityEngine.Input.GetAxis("Mouse Y")) ?0: UnityEngine.Input.GetAxis("Mouse Y");
-            m_CameraRight = float.IsNaN(UnityEngine.Input.GetAxis("Mouse X")) ? 0:UnityEngine.Input.GetAxis("Mouse X");
-            //translate to circle coordinates
-            m_Camera.x = m_CameraRight * Mathf.Sqrt(1 - (m_CameraForward * m_CameraForward) / 2.0f);
-            m_Camera.x = float.IsNaN(m_Camera.x) ? 0:m_Camera.x;
-            m_Camera.y = m_CameraForward * Mathf.Sqrt(1 - (m_CameraRight * m_CameraRight) / 2.0f);
-            m_Camera.y = float.IsNaN(m_Camera.y) ? 0 : m_Camera.y;
+            if (Time.time - m_timeLostX <= 0.2f)
+            {
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
+                PlayInfo.Instance._adjustVector = new Vector3(0, 360, 0);
+            }
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+            m_timeLostX = Time.time;
         }
-        //用于攻击的时候是否进入跑的状态，由于为了更强的效果，所以进入跑这个应该是所有状态都能够进入，思来想去，放在这个里面最为合适
-        private void WalkOrRun()
+        else if (Input.GetKeyUp(_keyOfForward))
         {
-            if (UnityEngine.Input.GetKeyDown(keyUp))
-            {
- 
-                if (Time.time - m_timeLostX <= 0.2f)
-                {
-                    PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                    PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
-                    PlayInfo.Instance._adjustVector = new Vector3(0, 360, 0);
-                }
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-                m_timeLostX = Time.time;
-            }
-            else if (UnityEngine.Input.GetKeyUp(keyUp))
-            {
-                PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
-                PlayInfo.Instance._adjustVector = Vector3.zero;
-            }
-
-            if (UnityEngine.Input.GetKeyDown(keyDown))
-            {
-                if (Time.time - m_timeLostY <= 0.2f)
-                {
-                    PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
-                    PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
-                    PlayInfo.Instance._adjustVector = new Vector3(0,180,0);
-                }
-                m_timeLostY = Time.time;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            }
-            else if (UnityEngine.Input.GetKeyUp(keyDown))
-            {
-                PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
-                PlayInfo.Instance._adjustVector = Vector3.zero;
-            }
-            if (UnityEngine.Input.GetKeyDown(keyLeft))
-            {
-                PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            }
-            else if (UnityEngine.Input.GetKeyUp(keyLeft))
-            {
-                if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
-                PlayInfo.Instance._adjustVector = Vector3.zero;
-            }
-            if (UnityEngine.Input.GetKeyDown(keyRight))
-            {
-                PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
-            }
-            else if (UnityEngine.Input.GetKeyUp(keyRight))
-            {
-                if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
-                PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
-                PlayInfo.Instance._adjustVector = Vector3.zero;
-            }
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
         }
-
-
-        private void Reset()
+        if (Input.GetKeyDown(_keyOfBack))
         {
-            keyUp = "w";
-            keyDown = "s";
-            keyLeft = "a";
-            keyRight = "d";
-
-            keyElfAttack = "left shift";
-            keyBack = "q";
-            keyJump = "space";
+            if (Time.time - m_timeLostY <= 0.2f)
+            {
+                PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.SprintRun;
+                PlayInfo.Instance._sprintInfo = PlayInfo.sprintInfo.enter;
+                PlayInfo.Instance._adjustVector = new Vector3(0,180,0);
+            }
+            m_timeLostY = Time.time;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
         }
+        else if (Input.GetKeyUp(_keyOfBack))
+        {
+            PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
+        }
+        if (Input.GetKeyDown(_keyOfLeft))
+        {
+            PlayInfo.Instance._adjustVector = new Vector3(0, 90, 0);
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+        }
+        else if (Input.GetKeyUp(_keyOfLeft))
+        {
+            if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
+        }
+        if (Input.GetKeyDown(_keyOfRight))
+        {
+            PlayInfo.Instance._adjustVector = new Vector3(0, -90, 0);
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.action;
+        }
+        else if (Input.GetKeyUp(_keyOfRight))
+        {
+            if (PlayInfo.Instance._actionInfo != PlayInfo.actionInfo.Run) PlayInfo.instance._actionInfo = PlayInfo.actionInfo.walk;
+            PlayInfo.Instance._characterInfo = PlayInfo.characterInfo.idle;
+            PlayInfo.Instance._adjustVector = Vector3.zero;
+        }
+    }
+
+    private void Reset()
+    {
+        _keyOfBack = "s";
+        _keyOfForward = "w";
+        _keyOfLeft = "a";
+        _keyOfRight = "d";
     }
 }

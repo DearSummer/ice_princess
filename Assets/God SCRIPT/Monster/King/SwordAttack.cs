@@ -19,7 +19,7 @@ public class SwordAttack : MonoBehaviour {
         if (other.gameObject.layer == LayerMask.NameToLayer("MainCharacter") && other.name == "CharaGetHurt")
         {
             HurtData d = new HurtData(damage, this.gameObject);
-            monsterEvent.EndAttack();
+            if(this.gameObject.tag != "Golem") monsterEvent.EndAttack();
             other.GetComponent<CharaHurtAble>().GetHurt(HurtType.Damage, d);
         }
     }

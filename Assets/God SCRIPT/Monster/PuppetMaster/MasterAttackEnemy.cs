@@ -6,13 +6,16 @@ namespace MonsterScript.PuppetMaster
 {
     public class MasterAttackEnemy : MonoBehaviour
     {
-        [SerializeField]
         private GameObject Target;
         [SerializeField]
         private MasterFinalFsm FinFsm;
         [SerializeField]
         private GameObject My;
         // Use this for initialization
+        private void Start()
+        {
+            Target = GameObject.Find("character");
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "ForSearch") { FinFsm.Translate(1); }

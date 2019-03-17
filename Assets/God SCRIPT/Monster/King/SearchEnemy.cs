@@ -5,13 +5,16 @@ namespace MonsterScript.Fsm
 {
     public class SearchEnemy : MonoBehaviour
     {
-        [SerializeField]
         private GameObject Target;
         [SerializeField]
         private FinalMachine FinFsm;
         [SerializeField]
         private GameObject My;
         private float TimeLock = 0.5f;
+        private void Start()
+        {
+            Target = GameObject.Find("character");
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "ForSearch")

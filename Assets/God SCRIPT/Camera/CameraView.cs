@@ -6,13 +6,14 @@ namespace CamerScript
 {
     public class CameraView : MonoBehaviour
     {
-        [SerializeField]
+       // [SerializeField]
         private Animator _ani;
         [SerializeField]
         private ImageEffect_RadialBlur postProcess;
         [SerializeField]
         private Camera cam;
-
+        [SerializeField]
+       // private GameObject prEffect;
         private bool Open = false;
 
         private bool FirstIn = false;
@@ -21,7 +22,8 @@ namespace CamerScript
         // Use this for initialization
         void Start()
         {
-
+            postProcess.enabled = false;
+            _ani = GameObject.FindWithTag("Player").GetComponentInChildren<Animator>();
         }
 
         // Update is called once per frame
@@ -51,18 +53,19 @@ namespace CamerScript
             FirstIn = true;
             postProcess.enabled = true;
             ViewPoint = 90f;
-            //PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
             Open = true;
+         //   prEffect.SetActive(true);
         }
         public void DisablePost()
         {
-            ViewPoint = 60f;
+            ViewPoint = 75f;
             FirstIn = false;
             postProcess.enabled = false;
             Open = false;
             //关闭跑步
             PlayInfo.Instance._actionInfo = PlayInfo.actionInfo.Run;
             _ani.SetTrigger("RunExit");
+          //  prEffect.SetActive(false);
         }
         public void ForWardSpecialAttack()
         {
@@ -74,7 +77,7 @@ namespace CamerScript
         IEnumerator BackToNormal()
         {
             yield return new WaitForSeconds(1);
-            ViewPoint = 60f;
+            ViewPoint = 75f;
         }
         public void CameraShake()
         {

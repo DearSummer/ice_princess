@@ -7,8 +7,8 @@ namespace God_SCRIPT.Camera
     {
 
         private CharacterInput _input;
-        [Header("Ref")]
-        public CinemachineFreeLook freeLookCamera;
+       // [Header("Ref")]
+        private CinemachineFreeLook freeLookCamera;
 
         [Header("Attr")]
         public float minTurnSpeed;
@@ -21,6 +21,7 @@ namespace God_SCRIPT.Camera
         private void Start()
         {
             _input = GetComponent<CharacterInput>();
+            freeLookCamera = GameObject.FindWithTag("MainCamera").GetComponentInChildren<CinemachineFreeLook>();
         }
 
 

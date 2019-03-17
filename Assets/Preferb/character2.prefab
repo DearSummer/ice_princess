@@ -4132,8 +4132,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666875657348446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 119.6, y: 387.42, z: -108.82}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4365635266150830}
   - {fileID: 4643983155546280}
@@ -9329,7 +9329,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcab15cc3f81463458e2141d990bc9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camView: {fileID: 0}
 --- !u!114 &114061099617923678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9341,7 +9340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cd94876e8163b4db0ba9ff541c77eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeLookCamera: {fileID: 0}
   minTurnSpeed: 100
   maxTurnSpeed: 400
   maxForwardSpeed: 1
@@ -9634,13 +9632,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1e0fb760086b14eb6c6a6c6938f133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyUp: w
-  keyDown: s
-  keyLeft: a
-  keyRight: d
-  keyJump: space
-  keyElfAttack: left shift
-  keyBack: q
+  _keyOfForward: w
+  _keyOfBack: s
+  _keyOfRight: d
+  _keyOfLeft: a
   m_Movement: {x: 0, y: 0}
   m_Camera: {x: 0, y: 0}
   m_MovementForward: 0

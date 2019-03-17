@@ -9,8 +9,11 @@ namespace MonsterScript.Golem
     {
         [SerializeField]
         private GolemEvent golemEvent;
-        [SerializeField]
         private GameObject Target;
+        private void Start()
+        {
+            Target = GameObject.Find("character");
+        }
         private void OnTriggerEnter(Collider other)
         {
             if (other.name == "ForSearch")

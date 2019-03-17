@@ -21,6 +21,12 @@ public class AttackFsm:BaseFsm  {
             _ani.ResetTrigger("LeftButtonDown");
             //_ani.SetBool("IsPress", true);
         }
+        else if(Input.GetKeyDown(KeyCode.Q))
+        {
+            _ani.SetTrigger("Back");
+            _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce((_ani.gameObject.transform.up-
+            _ani.gameObject.transform.forward) * 1000);
+        }
         _ani.speed = Mathf.Lerp(_ani.speed, 1, 0.05f);
     }
 

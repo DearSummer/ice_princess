@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MasterMagicEvent : MonoBehaviour {
-    [SerializeField]
     private GameObject Target;
     [SerializeField]
     private GameObject magicOne;
@@ -16,8 +15,12 @@ public class MasterMagicEvent : MonoBehaviour {
     private AudioClip audioOne;
     [SerializeField]
     private AudioClip audioTwo;
-	// Use this for initialization
-	public void MagicOne()
+    private void Start()
+    {
+        Target = GameObject.Find("character");
+    }
+    // Use this for initialization
+    public void MagicOne()
     {
         GameObject temp = GameObject.Instantiate(magicOne);
         temp.transform.parent = null;

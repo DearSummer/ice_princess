@@ -11,10 +11,10 @@ public class ImageEffect_RadialBlur : MonoBehaviour {
 	// private RenderTextureFormat rtFormat = RenderTextureFormat.Default;
 
 	[Range(0.0f, 1.0f)]
-	public float SampleDist = 0.17f;
+	public float SampleDist = 0.91f;
 
 	[Range(1.0f, 5.0f)]
-	public float SampleStrength = 2.09f;
+	public float SampleStrength = 3.76f;
 
 
 	#endregion
@@ -22,6 +22,7 @@ public class ImageEffect_RadialBlur : MonoBehaviour {
 
     void Start()
     {
+        this.enabled = false;
         FindShaders();
         CheckSupport();
         CreateMaterials();
@@ -100,9 +101,4 @@ public class ImageEffect_RadialBlur : MonoBehaviour {
 		
 	}
 	
-	 public void OnDisable () {
-        if (RadialBlurMaterial)
-            DestroyImmediate (RadialBlurMaterial);
-            // RadialBlurMaterial = null;
-    }
 }

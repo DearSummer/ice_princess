@@ -4,11 +4,12 @@ using UnityEngine;
 using CamerScript;
 public class AnimEvent:MonoBehaviour{
     private SwordControl SwordFsm = null;
-    [SerializeField]
+   // [SerializeField]
     private CameraView camView;
     public void Start()
     {
         SwordFsm = GetComponentInParent<SwordControl>();
+        camView = GameObject.FindWithTag("MainCamera").GetComponent<CameraView>();
     }
     private bool FirstIn = false;
     //这里都是命令，其实都可以用命令封装起来

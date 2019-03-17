@@ -24,4 +24,8 @@ public class PlayInfo
     public bool _isFirstInit = false;
     //用来调整专门的奔跑动画
     public Vector3 _adjustVector = Vector3.zero;
+
+    ///<summary>
+    ///<summary>
+
 }

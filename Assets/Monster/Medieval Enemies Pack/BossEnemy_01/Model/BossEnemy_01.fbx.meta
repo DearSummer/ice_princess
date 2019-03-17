@@ -99,21 +99,26 @@ ModelImporter:
     7400000: Boind Pose
     7400002: walk
     7400004: Jump
-    7400006: Death
+    7400006: Death02
     7400008: Idle
     7400010: Fight Idle
     7400012: Attack
     7400014: Attack Right Hand
     7400016: Attack Leftt Hand
     7400018: Run
-    7400020: Hit Right
-    7400022: Hit Left
-    7400024: Hit Front
+    7400020: Hit0
+    7400022: Hit1
+    7400024: Hit2
     7400026: Hit Back
     9500000: //RootNode
     11100000: //RootNode
     13700000: Boss_msh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BossEnemyMaterial
+    second: {fileID: 2100000, guid: e89c7cbd4d30db44bbdd797c08b9e382, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -226,7 +231,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: Death02
       takeName: 
       firstFrame: 60
       lastFrame: 74
@@ -313,7 +318,7 @@ ModelImporter:
       name: Attack
       takeName: 
       firstFrame: 194
-      lastFrame: 224
+      lastFrame: 279
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -422,7 +427,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Hit Right
+      name: Hit0
       takeName: 
       firstFrame: 309
       lastFrame: 324
@@ -450,7 +455,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Hit Left
+      name: Hit1
       takeName: 
       firstFrame: 325
       lastFrame: 339
@@ -478,7 +483,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Hit Front
+      name: Hit2
       takeName: 
       firstFrame: 340
       lastFrame: 354

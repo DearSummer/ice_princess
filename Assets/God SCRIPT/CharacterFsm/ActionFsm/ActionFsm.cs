@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ActionSpace;
-using God_SCRIPT.Camera;
 
 
 public class ActionFsm : BaseFsm
@@ -13,7 +12,6 @@ public class ActionFsm : BaseFsm
     private BaseFsm _usualFsm = new UsualAction();
     private BaseFsm _sprintFsm = new SprintAction();
     public BaseFsm _currentFsm = null;
-
 
     public override void MyUpdate(Animator _ani)//主循环方法
     {
@@ -36,7 +34,6 @@ public class ActionFsm : BaseFsm
     public override void MyFixUpdate(Animator _ani)
     {
         _currentFsm.MyFixUpdate(_ani);
-
     }
     public void Translate(BaseFsm nextFsm)
     {
@@ -54,7 +51,6 @@ public class ActionFsm : BaseFsm
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-
     }
 
     public override void PrepareExit(Animator _ani)

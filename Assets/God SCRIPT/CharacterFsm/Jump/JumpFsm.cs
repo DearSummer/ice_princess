@@ -17,7 +17,7 @@ public class JumpFsm : BaseFsm
     public override void PrepareEnter(Animator _ani)
     {
         _ani.SetTrigger("Jump");
-        _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.up * 2000);
+        _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.up * 3000);
         _ani.gameObject.transform.parent.GetComponent<Rigidbody>().AddForce(_ani.gameObject.transform.forward * 2000);
 
     }
