@@ -19,7 +19,7 @@ public class SpceTrans : MonoBehaviour {
         if (other.name == "ForSearch"&&this.gameObject.name == "Cube-Parent")
         {
             Destroy(this.gameObject);
-            GameObject.Find("GameInfo").GetComponent<GameInfomation>().SaveScenceInformation(1);
+            GameObject.Find("GameInfo").GetComponent<GameInfomation>().SaveScenceInformation(2);
         }
         else if (other.name == "ForSearch" && this.gameObject.name == "Cube-Child")
         {

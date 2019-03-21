@@ -11,6 +11,11 @@ namespace God_SCRIPT.Event
         public UnityEvent OnSceneStartLoad, OnSceneLoaded;
         public FUnityEvent OnSceneLoading;
 
+        private void Start()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+
         private bool isLoading = false;
         public void LoadScene(int level)
         {

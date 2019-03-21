@@ -58,7 +58,7 @@ namespace GameInfo
         }
         public void LoadScenceInfomation()
         {
-            _asyncOperation = SceneManager.LoadSceneAsync(0);
+            _asyncOperation = SceneManager.LoadSceneAsync(2);
         }
         public void ResetScence()
         {
